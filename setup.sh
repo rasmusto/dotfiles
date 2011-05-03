@@ -1,25 +1,26 @@
 #!/bin/bash
 
 #Download the tarball of config files
-wget http://dl.dropbox.com/u/1857337/vim.tar
+wget http://dl.dropbox.com/u/1857337/setup/files.tar.gz
 
-if [ -e setup.tar.gz ];
+if [ -e files.tar.gz ];
 then
     echo 'Extracting files...'
 else
     exit
 fi
-tar -xf vim.tar
+tar -xf files.tar.gz
 echo 'Moving files into place...'
-mv ./vim/_bashrc ~/.bashrc
-mv ./vim/_vimrc ~/.vimrc
-mv ./vim/_gvimrc ~/.gvimrc
-mv ./vim/_zshrc ~/.zshrc
-mv ./vim/_zshrc.pre ~/.zshrc.pre
-mv ./vim/_gitconfig ~/.gitconfig
-mv ./vim/subversion ~/.subversion
-mv ./vim/vimfiles ~/.vim
+mv ./files/_bashrc ~/.bashrc
+mv ./files/_vimrc ~/.vimrc
+mv ./files/_gvimrc ~/.gvimrc
+mv ./files/_zshrc ~/.zshrc
+mv ./files/_zshrc.local ~/.zshrc.local
+mv ./files/_zshrc.pre ~/.zshrc.pre
+mv ./files/_gitconfig ~/.gitconfig
+mv ./files/subversion ~/.subversion
+mv ./files/vimfiles ~/.vim
 echo 'Cleaning up...'
-rm -rf ./vim
-rm vim.tar
+rm -rf ./files
+rm files.tar.gz
 echo 'Done!'
