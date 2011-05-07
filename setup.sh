@@ -2,14 +2,26 @@
 
 echo 'Creating symlinks...'
 
+#bash
 ln -s ./files/_bashrc ~/.bashrc
+
+#vim
 ln -s ./files/_vimrc ~/.vimrc
 ln -s ./files/_gvimrc ~/.gvimrc
+ln -s ./files/vimfiles ~/.vim
+
+#zsh
 ln -s ./files/_zshrc ~/.zshrc
 ln -s ./files/_zshrc.local ~/.zshrc.local
 ln -s ./files/_zshrc.pre ~/.zshrc.pre
+
+#git
 ln -s ./files/_gitconfig ~/.gitconfig
+
+#svn
 ln -s ./files/subversion ~/.subversion
-ln -s ./files/vimfiles ~/.vim
+
+#scripts
+ln -s ./files/bin ~/.bin
 
 echo 'Done!'
