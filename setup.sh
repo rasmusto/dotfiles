@@ -25,3 +25,11 @@ ln -s -n ~/setup/files/subversion ~/.subversion
 ln -s -n ~/setup/files/bin ~/.bin
 
 echo 'Done!'
+
+echo "Enter your git name: "
+read name
+git config --global user.name "$name"
+
+echo "Enter your git email: "
+read email
+git config --global user.email $email
