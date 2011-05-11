@@ -1,4 +1,4 @@
-default: create_tarball.sh
+default:
 	tar cvzf files.tar.gz files
 clean: files.tar.gz
 	rm files.tar.gz
