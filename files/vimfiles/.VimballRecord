@@ -1,1 +1,2 @@
 supertab.vba: call delete('C:\Users\torben\vimfiles/doc/supertab.txt')|call delete('C:\Users\torben\vimfiles/plugin/supertab.vim')
+tcomment.vba: call delete('/home/torben/.vim/doc/tcomment.txt')|call delete('/home/torben/.vim/plugin/tcomment.vim')|call delete('/home/torben/.vim/autoload/tcomment.vim')

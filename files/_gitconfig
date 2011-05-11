@@ -37,3 +37,6 @@
     external = git_diff_wrapper
 [pager]
     diff =
+[user]
+	name = Torben Rasmussen
+	email = rtorben@gmail.com
