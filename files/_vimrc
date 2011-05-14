@@ -159,13 +159,13 @@ if has("gui_running")
   set background=dark
   set t_Co=256
   set background=dark
-  colorscheme xoria256
+  colorscheme wombat256
 
   set nu
 else
   set background=dark
   set nonu
-  colorscheme xoria256
+  colorscheme wombat256
 endif
 
 set encoding=utf8
@@ -570,3 +570,4 @@ map <leader>q :e ~/buffer<cr>
 set guifont=DejaVu\ Sans\ Mono\ 11
 
 set t_Co=256
+set number
