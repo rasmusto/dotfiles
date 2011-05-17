@@ -159,13 +159,15 @@ if has("gui_running")
   set background=dark
   set t_Co=256
   set background=dark
-  colorscheme wombat256
+  "colorscheme wombat256
+  autocmd VimEnter * GuiColorScheme darkspectrum
 
   set nu
 else
   set background=dark
   set nonu
-  colorscheme wombat256
+  "colorscheme wombat256
+  autocmd VimEnter * GuiColorScheme darkspectrum
 endif
 
 set encoding=utf8
