@@ -1,6 +1,20 @@
 #!/bin/bash
 
-echo 'Creating symlinks...'
+if [ -d ~/setup ];
+then
+    echo "There is a setup dir"
+    echo 'Creating symlinks...'
+else
+    echo "No setup dir detected, creating one..."
+    mkdir ~/setup
+    if [ -e ./files.tar.gz ]
+    then
+        echo "files.tar.gz is here!"
+        tar xvzf files.tar.gz -C ~/setup/
+    else
+        echo "files.tar.gz isn't here :("
+    fi
+fi
 
 #bash
 ln -s ~/setup/files/_bashrc ~/.bashrc
