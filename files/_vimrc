@@ -569,7 +569,8 @@ map <leader>q :e ~/buffer<cr>
 "set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 "set guifont=Droid_Sans_Mono_Slashed:h11:cANSI
 "set guifont=Bitstream_Vera_Sans_Mono:h11:cANSI
-set guifont=DejaVu\ Sans\ Mono\ 11
+"set guifont=DejaVu\ Sans\ Mono\ 11
+set guifont=Inconsolata\ 13
 
 set t_Co=256
 set number
