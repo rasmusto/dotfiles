@@ -1,0 +1,5 @@
+This is my attempt as making any unix/linux machine I'm on feel like home.
+
+The files include a ton of good configuration for zsh, git, vim, and others.
+
+The setup.sh script will link all of the files in my repo to your home directory, but will fail if you have any files/directories of the same name.
