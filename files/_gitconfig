@@ -3,6 +3,10 @@
 [pager]
     diff = 
 
+[github]
+	user = rasmusto
+	token = b6ab82af10a8c97dc50c4fc9a556db92
+
 [color]
     diff = auto
     status = auto
