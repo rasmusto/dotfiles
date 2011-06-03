@@ -1,7 +1,3 @@
-[diff]
-    external = git_diff_wrapper
-[pager]
-    diff = 
 
 [github]
 	user = rasmusto
@@ -38,7 +34,7 @@
 [alias]
     co = checkout
 [diff]
-    external = git_diff_wrapper
+   external = git_diff_wrapper
 [pager]
     diff =
 [user]
