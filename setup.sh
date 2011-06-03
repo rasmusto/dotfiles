@@ -17,39 +17,39 @@ else
 fi
 
 #bash
-if [ -f ~/.vimrc ] mv ~/.bashrc ~/.bashrc.bak
+if [ -f ~/.vimrc ]; then mv ~/.bashrc ~/.bashrc.bak fi
 ln -s ~/setup/files/_bashrc ~/.bashrc
 
 #vim
-if [ -f ~/.vimrc ] mv ~/.vimrc ~/.vimrc.bak
+if [ -f ~/.vimrc ]; then mv ~/.vimrc ~/.vimrc.bak fi
 ln -s ~/setup/files/_vimrc ~/.vimrc
 
-if [ -f ~/.vimrc ] mv ~/.vimrc ~/.vimrc.bak
+if [ -f ~/.vimrc ] then mv ~/.vimrc ~/.vimrc.bak fi
 ln -s ~/setup/files/_gvimrc ~/.gvimrc
 
-if [ -d ~/.vim ] mv ~/.vim ~/.vim.bak
+if [ -d ~/.vim ] then mv ~/.vim ~/.vim.bak fi
 ln -s -n ~/setup/files/vimfiles ~/.vim
 
 #zsh
-if [ -f ~/.zshrc ] mv ~/.zshrc ~/.zshrc.bak
+if [ -f ~/.zshrc ] then mv ~/.zshrc ~/.zshrc.bak fi
 ln -s ~/setup/files/_zshrc ~/.zshrc
 
-if [ -f ~/.zshrc.local ] mv ~/.zshrc.local ~/.zshrc.local.bak
+if [ -f ~/.zshrc.local ] then mv ~/.zshrc.local ~/.zshrc.local.bak fi
 ln -s ~/setup/files/_zshrc.local ~/.zshrc.local
 
-if [ -f ~/.zshrc.pre ] mv ~/.zshrc.pre ~/.zshrc.pre.bak
+if [ -f ~/.zshrc.pre ] then mv ~/.zshrc.pre ~/.zshrc.pre.bak fi
 ln -s ~/setup/files/_zshrc.pre ~/.zshrc.pre
 
 #git
-if [ -f ~/.gitconfig ] mv ~/.gitconfig ~/.gitconfig.bak
+if [ -f ~/.gitconfig ] then mv ~/.gitconfig ~/.gitconfig.bak fi
 ln -s ~/setup/files/_gitconfig ~/.gitconfig
 
 #svn
-if [ -f ~/.subversion ] mv ~/.subversion ~/.subversion.bak
+if [ -f ~/.subversion ] then mv ~/.subversion ~/.subversion.bak fi
 ln -s -n ~/setup/files/subversion ~/.subversion
 
 #scripts
-if [ -d ~/.bin ] mv ~/.bin ~/.bin.bak
+if [ -d ~/.bin ] then mv ~/.bin ~/.bin.bak fi
 ln -s -n ~/setup/files/bin ~/.bin
 
 echo 'Done!'
