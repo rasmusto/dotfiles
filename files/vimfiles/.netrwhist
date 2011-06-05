@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/nfs/farm/u2/r/rasmusto/ece474/hw4/rtl_src/fifo'
 let g:netrw_dirhist_2='/nfs/farm/u2/r/rasmusto/ece474/hw4/rtl_src/ctrl_blk_2m'
 let g:netrw_dirhist_3='/nfs/farm/u2/r/rasmusto/.mutt'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/nfs/farm/u2/r/rasmusto/.mutt'
 let g:netrw_dirhist_6='/nfs/farm/u2/r/rasmusto/ece474/hw4/rtl_src/dofiles'
 let g:netrw_dirhist_7='/nfs/farm/u2/r/rasmusto/ece474/hw4/dofiles'
 let g:netrw_dirhist_8='/nfs/farm/u2/r/rasmusto/cs411/linux-2.6.34.7/arch/alpha/boot'
+let g:netrw_dirhist_9='/home/torben/ece477_website_new/.git'
