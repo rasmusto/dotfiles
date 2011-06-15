@@ -17,7 +17,7 @@ else
 fi
 
 #bash
-if [ -f ~/.vimrc ]; then 
+if [ -f ~/.bashrc ]; then 
     mv ~/.bashrc ~/.bashrc.bak 
 fi
 ln -s ~/setup/files/_bashrc ~/.bashrc
@@ -28,8 +28,8 @@ if [ -f ~/.vimrc ]; then
 fi
 ln -s ~/setup/files/_vimrc ~/.vimrc
 
-if [ -f ~/.vimrc ]; then 
-    mv ~/.vimrc ~/.vimrc.bak 
+if [ -f ~/.gvimrc ]; then 
+    mv ~/.gvimrc ~/.gvimrc.bak 
 fi
 ln -s ~/setup/files/_gvimrc ~/.gvimrc
 
@@ -74,12 +74,12 @@ ln -s -n ~/setup/files/bin ~/.bin
 
 echo 'Done!'
 
-echo "Enter your git name: "
-echo "i.e. "Firstname Lastname""
-read name
-git config --global user.name "$name"
+#echo "Enter your git name: "
+#echo "i.e. "Firstname Lastname""
+#read name
+#git config --global user.name "$name"
 
-echo "Enter your git email: "
-echo "i.e. "user@address.com""
-read email
-git config --global user.email $email
+#echo "Enter your git email: "
+#echo "i.e. "user@address.com""
+#read email
+#git config --global user.email $email
