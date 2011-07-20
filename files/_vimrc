@@ -97,10 +97,10 @@ let g:mapleader = ","
 nmap <leader>w :w!<cr>
 
 " Fast editing of the .vimrc
-map <leader>e :e! ~/.vim_runtime/vimrc<cr>
+map <leader>e :e! ~/.vimrc<cr>
 
 " When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc
+autocmd! bufwritepost vimrc source ~/.vimrc
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -156,17 +156,14 @@ syntax enable "Enable syntax hl
 
 if has("gui_running")
   set guioptions-=T
-  set background=dark
   set t_Co=256
   set background=dark
-  colorscheme darkspectrum
-
+  colorscheme solarized
   set nu
 else
   set background=dark
   set nonu
-  "colorscheme wombat256
-  autocmd VimEnter * GuiColorScheme darkspectrum
+  autocmd VimEnter * GuiColorScheme solarized
 endif
 
 set encoding=utf8
@@ -183,6 +180,7 @@ set ffs=unix,dos,mac "Default file types
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git anyway...
 set nobackup
+set nowritebackup
 set nowb
 set noswapfile
 
@@ -204,7 +202,7 @@ set nowrap "Don't wrap lines
 
 map <leader>t2 :setlocal shiftwidth=2<cr>
 map <leader>t4 :setlocal shiftwidth=4<cr>
-map <leader>t8 :setlocal shiftwidth=4<cr>
+map <leader>t8 :setlocal shiftwidth=8<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -371,7 +369,7 @@ endtry
 set laststatus=2
 
 " Format the statusline
-set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c\ %{fugitive#statusline()}
 
 
 function! CurDir()
@@ -453,16 +451,17 @@ let g:bufExplorerShowRelativePath=1
 " => Minibuffer plugin
 """"""""""""""""""""""""""""""
 let g:miniBufExplModSelTarget = 1
-let g:miniBufExplorerMoreThanOne = 2
+"let g:miniBufExplorerMoreThanOne = 2
 let g:miniBufExplModSelTarget = 0
-let g:miniBufExplUseSingleClick = 1
+"let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplVSplit = 25
 let g:miniBufExplSplitBelow=1
 
 let g:bufExplorerSortBy = "name"
 
-autocmd BufRead,BufNew :call UMiniBufExplorer
+"TODO: I disabled this because it was annoying
+"autocmd BufRead,BufNew :call UMiniBufExplorer
 
 map <leader>u :TMiniBufExplorer<cr>:TMiniBufExplorer<cr>
 
@@ -504,6 +503,11 @@ au FileType python map <buffer> <leader>1 /class
 au FileType python map <buffer> <leader>2 /def
 au FileType python map <buffer> <leader>C ?class
 au FileType python map <buffer> <leader>D ?def
+au FileType python set smartindent
+au FileType python set tabstop=4
+au FileType python set shiftwidth=4
+au FileType python set expandtab
+
 
 
 """"""""""""""""""""""""""""""
@@ -534,11 +538,11 @@ endfunction
 """"""""""""""""""""""""""""""
 " => Fuzzy finder
 """"""""""""""""""""""""""""""
-try
-    call fuf#defineLaunchCommand('FufCWD', 'file', 'fnamemodify(getcwd(), ''%:p:h'')')
-    map <leader>t :FufCWD **/<CR>
-catch
-endtry
+"try
+"    call fuf#defineLaunchCommand('FufCWD', 'file', 'fnamemodify(getcwd(), ''%:p:h'')')
+"    map <leader>t :FufCWD **/<CR>
+"catch
+"endtry
 
 
 """"""""""""""""""""""""""""""
@@ -552,7 +556,7 @@ set grepprg=/bin/grep\ -nH
 " => MISC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "Quickly open a buffer for scripbble
 map <leader>q :e ~/buffer<cr>
@@ -569,15 +573,63 @@ map <leader>q :e ~/buffer<cr>
 "set guifont=Droid_Sans_Mono_Slashed:h11:cANSI
 "set guifont=Bitstream_Vera_Sans_Mono:h11:cANSI
 "set guifont=DejaVu\ Sans\ Mono\ 11
-set guifont=Inconsolata\ 12
+"set guifont=Inconsolata\ 12
+"set guifont=Inconsolata:h13:cANSI
+set guifont=Consolas:h14:cANSI
 
 set t_Co=256
 set number
 
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_Ctags_Cmd = "ctags"
 let Tlist_WinWidth = 50
 map <F4> :TlistToggle<cr>
-map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 set guioptions=
 
+au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
+
+set completeopt=menuone,longest,preview
+
+imap <silent> <expr> <buffer> <CR> pumvisible() ? "<CR><C-R>=(col('.')-1&&match(getline(line('.')), '\\.',
+      \ col('.')-2) == col('.')-2)?\"\<lt>C-X>\<lt>C-O>\":\"\"<CR>"
+      \ : "<CR>"
+
+map <leader>cmd :ConqueTermSplit cmd<CR>
+map <leader>bash :ConqueTermSplit C:\Cygwin\Cygwin.bat<CR>
+"map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh.exe<CR>
+map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh --login<CR>
+
+au GUIEnter * simalt ~x 
+"x on an English Windows version. n on a French one
+set ff=unix
+
+map <leader>P :cd C:\sync_workspaces\trasmuss\PDE_Automation\Python<CR>
+map <leader>G :cd H:\python\gui\<CR>
+map <leader>a :args *.py<CR>
+"set autochdir
+
+"added this shell enhancement script
+"http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
+function! s:ExecuteInShell(command)
+  let command = join(map(split(a:command), 'expand(v:val)'))
+  let winnr = bufwinnr('^' . command . '$')
+  silent! execute  winnr < 0 ? 'botright new ' . fnameescape(command) : winnr . 'wincmd w'
+  setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap number
+  echo 'Execute ' . command . '...'
+  silent! execute 'silent %!'. command
+  silent! execute 'resize ' . line('$')
+  silent! redraw
+  silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
+  silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>'
+  echo 'Shell command ' . command . ' executed.'
+endfunction
+command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
+
+map <leader>y :YRShow<CR>
+map <leader>b :LustyJuggler<CR>
+noremap ; :
+
+"Fix slow tmp files when using windows shares
+set directory^=$HOME/tmp
+let g:loaded_matchparen = 1
