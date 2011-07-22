@@ -164,7 +164,7 @@ else
   set background=dark
   set t_Co=256
   let g:solarized_termcolors=256
-  "let g:solarized_style="dark"
+  set nonu
   colorscheme solarized
 endif
 
@@ -217,7 +217,7 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSearch('gv')<CR>
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
+map <leader>g :vimgrep  ./*<left><left><left><left>
 
 
 function! CmdLine(str)
@@ -322,9 +322,11 @@ map <leader>bd :Bclose<cr>
 " Close all the buffers
 map <leader>ba :1,300 bd!<cr>
 
-" Use the arrows to something usefull
+" Use the arrows to something useful
 map <right> :bn<cr>
 map <left> :bp<cr>
+map <S-l> :bn<cr>
+map <S-h> :bp<cr>
 
 " Tab configuration
 "map <leader>tn :tabnew %<cr>
@@ -439,7 +441,10 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 " Do :help cope if you are unsure what cope is. It's super useful!
 map <leader>cc :botright cope<cr>
 map <leader>n :cn<cr>
+map <M-n> :cn<cr>
+
 map <leader>p :cp<cr>
+map <M-p> :cp<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -578,6 +583,7 @@ set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 "set guifont=Inconsolata\ 12
 "set guifont=Inconsolata:h13:cANSI
 "set guifont=Consolas:h14:cANSI
+"set guifont=Consolas:h11:cANSI
 
 set t_Co=256
 set number
@@ -586,7 +592,11 @@ let Tlist_Ctags_Cmd = "ctags"
 let Tlist_WinWidth = 50
 map <F4> :TlistToggle<cr>
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-set guioptions=
+
+"Fullscreen
+set go-=m go-=T go-=l go-=L go-=r go-=R go-=b go-=F go=
+set lines=999 columns=999
+set lines=1000 columns=1000
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
@@ -611,28 +621,30 @@ set ff=unix
 "map <leader>P :cd C:\sync_workspaces\trasmuss\PDE_Automation\Python<CR>
 "map <leader>G :cd H:\python\gui\<CR>
 "map <leader>a :args *.py<CR>
+map <leader>P :cd C:\sync_workspaces\trasmuss\PDE_Automation\Python<CR>
+map <leader>a :cd C:\Users\trasmuss\repositories\python_automation_gui\gui<CR>:args *.py<CR>
 "set autochdir
 
 "added this shell enhancement script
 "http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
 function! s:ExecuteInShell(command)
-  let command = join(map(split(a:command), 'expand(v:val)'))
-  let winnr = bufwinnr('^' . command . '$')
-  silent! execute  winnr < 0 ? 'botright new ' . fnameescape(command) : winnr . 'wincmd w'
-  setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap number
-  echo 'Execute ' . command . '...'
-  silent! execute 'silent %!'. command
-  silent! execute 'resize ' . line('$')
-  silent! redraw
-  silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
-  silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>'
-  echo 'Shell command ' . command . ' executed.'
+    let command = join(map(split(a:command), 'expand(v:val)'))
+    let winnr = bufwinnr('^' . command . '$')
+    silent! execute  winnr < 0 ? 'botright new ' . fnameescape(command) : winnr . 'wincmd w'
+    setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap number
+    echo 'Execute ' . command . '...'
+    silent! execute 'silent %!'. command
+    silent! execute 'resize ' . line('$')
+    silent! redraw
+    silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
+    silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>'
+    echo 'Shell command ' . command . ' executed.'
 endfunction
 command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 
 map <leader>y :YRShow<CR>
-map <leader>b :LustyJuggler<CR>
-noremap ; :
+"map <leader>b :LustyJuggler<CR>
+"noremap ; :
 
 "Fix slow tmp files when using windows shares
 "set directory^=$HOME/tmp
@@ -646,3 +658,9 @@ set lines=60 "looks good
 set columns=213 "rockin
 map <leader>. :set lines=60 columns=213<CR>
 map <leader>B :cd ~/bandgap<CR>:args *<CR>
+set directory^=$HOME/tmp
+let g:loaded_matchparen = 1
+
+map <leader>l :set background=light<cr>
+map <leader>d :set background=dark<cr>
+"map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
