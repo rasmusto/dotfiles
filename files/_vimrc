@@ -161,7 +161,9 @@ if has("gui_running")
   colorscheme solarized
   set nu
 else
-  set background=light
+  set background=dark
+  set t_Co=256
+  let g:solarized_termcolors=256
   set nonu
   colorscheme solarized
 endif
@@ -327,10 +329,10 @@ map <S-l> :bn<cr>
 map <S-h> :bp<cr>
 
 " Tab configuration
-map <leader>tn :tabnew %<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+"map <leader>tn :tabnew %<cr>
+"map <leader>te :tabedit
+"map <leader>tc :tabclose<cr>
+"map <leader>tm :tabmove
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
@@ -574,13 +576,14 @@ map <leader>q :e ~/buffer<cr>
 "
 "set guifont="Bitstream_Vera_Sans_Mono\:h11\:cANSI
 "set guifont=Bitstream Vera Sans Mono 11
-"set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
+set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 "set guifont=Droid_Sans_Mono_Slashed:h11:cANSI
 "set guifont=Bitstream_Vera_Sans_Mono:h11:cANSI
 "set guifont=DejaVu\ Sans\ Mono\ 11
 "set guifont=Inconsolata\ 12
 "set guifont=Inconsolata:h13:cANSI
-set guifont=Consolas:h11:cANSI
+"set guifont=Consolas:h14:cANSI
+"set guifont=Consolas:h11:cANSI
 
 set t_Co=256
 set number
@@ -604,15 +607,20 @@ imap <silent> <expr> <buffer> <CR> pumvisible() ? "<CR><C-R>=(col('.')-1&&match(
       \ col('.')-2) == col('.')-2)?\"\<lt>C-X>\<lt>C-O>\":\"\"<CR>"
       \ : "<CR>"
 
-map <leader>cmd :ConqueTermSplit cmd<CR>
-map <leader>bash :ConqueTermSplit C:\Cygwin\Cygwin.bat<CR>
+"map <leader>cmd :ConqueTermSplit cmd<CR>
+"map <leader>bash :ConqueTermSplit C:\Cygwin\Cygwin.bat<CR>
 "map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh.exe<CR>
-map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh --login<CR>
+"map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh --login<CR>
+map <leader>zsh :ConqueTermSplit zsh<CR>
+map <leader>csh :ConqueTermSplit csh<CR>
 
-au GUIEnter * simalt ~x 
+"au GUIEnter * simalt ~x 
 "x on an English Windows version. n on a French one
 set ff=unix
 
+"map <leader>P :cd C:\sync_workspaces\trasmuss\PDE_Automation\Python<CR>
+"map <leader>G :cd H:\python\gui\<CR>
+"map <leader>a :args *.py<CR>
 map <leader>P :cd C:\sync_workspaces\trasmuss\PDE_Automation\Python<CR>
 map <leader>a :cd C:\Users\trasmuss\repositories\python_automation_gui\gui<CR>:args *.py<CR>
 "set autochdir
@@ -639,6 +647,17 @@ map <leader>y :YRShow<CR>
 "noremap ; :
 
 "Fix slow tmp files when using windows shares
+"set directory^=$HOME/tmp
+"let g:loaded_matchparen = 1
+map <leader>E :cd /procs/cs200a/projects/ECP4/users/trasmuss/ws/amber<CR>
+map <leader>l :!ls<CR>
+
+"Disable annoying tabs
+set showtabline=0
+set lines=60 "looks good
+set columns=213 "rockin
+map <leader>. :set lines=60 columns=213<CR>
+map <leader>B :cd ~/bandgap<CR>:args *<CR>
 set directory^=$HOME/tmp
 let g:loaded_matchparen = 1
 

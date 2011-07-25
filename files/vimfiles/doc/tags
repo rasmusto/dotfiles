@@ -100,11 +100,14 @@
 :NERDTreeFromBookmark	NERD_tree.txt	/*:NERDTreeFromBookmark*
 :NERDTreeMirror	NERD_tree.txt	/*:NERDTreeMirror*
 :NERDTreeToggle	NERD_tree.txt	/*:NERDTreeToggle*
+<<<<<<< HEAD
 :PerlFAQ	perlhelp.txt	/*:PerlFAQ*
 :PerlFunc	perlhelp.txt	/*:PerlFunc*
 :PerlHelp	perlhelp.txt	/*:PerlHelp*
 :PerlMod	perlhelp.txt	/*:PerlMod*
 :PerlVar	perlhelp.txt	/*:PerlVar*
+=======
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 :TComment	tcomment.txt	/*:TComment*
 :TCommentAs	tcomment.txt	/*:TCommentAs*
 :TCommentBlock	tcomment.txt	/*:TCommentBlock*
@@ -130,22 +133,32 @@
 ConqueTerm	conque_term.txt	/*ConqueTerm*
 ConqueTerm_CWInsert	conque_term.txt	/*ConqueTerm_CWInsert*
 ConqueTerm_CloseOnEnd	conque_term.txt	/*ConqueTerm_CloseOnEnd*
+<<<<<<< HEAD
 ConqueTerm_CodePage	conque_term.txt	/*ConqueTerm_CodePage*
 ConqueTerm_Color	conque_term.txt	/*ConqueTerm_Color*
 ConqueTerm_ColorMode	conque_term.txt	/*ConqueTerm_ColorMode*
 ConqueTerm_EscKey	conque_term.txt	/*ConqueTerm_EscKey*
 ConqueTerm_ExecFileKey	conque_term.txt	/*ConqueTerm_ExecFileKey*
 ConqueTerm_FastMode	conque_term.txt	/*ConqueTerm_FastMode*
+=======
+ConqueTerm_Color	conque_term.txt	/*ConqueTerm_Color*
+ConqueTerm_EscKey	conque_term.txt	/*ConqueTerm_EscKey*
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 ConqueTerm_InsertOnEnter	conque_term.txt	/*ConqueTerm_InsertOnEnter*
 ConqueTerm_PromptRegex	conque_term.txt	/*ConqueTerm_PromptRegex*
 ConqueTerm_PyExe	conque_term.txt	/*ConqueTerm_PyExe*
 ConqueTerm_PyVersion	conque_term.txt	/*ConqueTerm_PyVersion*
 ConqueTerm_ReadUnfocused	conque_term.txt	/*ConqueTerm_ReadUnfocused*
+<<<<<<< HEAD
 ConqueTerm_SendFileKey	conque_term.txt	/*ConqueTerm_SendFileKey*
 ConqueTerm_SendFunctionKeys	conque_term.txt	/*ConqueTerm_SendFunctionKeys*
 ConqueTerm_SendVisKey	conque_term.txt	/*ConqueTerm_SendVisKey*
 ConqueTerm_SessionSupport	conque_term.txt	/*ConqueTerm_SessionSupport*
 ConqueTerm_StartMessages	conque_term.txt	/*ConqueTerm_StartMessages*
+=======
+ConqueTerm_SendFunctionKeys	conque_term.txt	/*ConqueTerm_SendFunctionKeys*
+ConqueTerm_SendVisKey	conque_term.txt	/*ConqueTerm_SendVisKey*
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 ConqueTerm_Syntax	conque_term.txt	/*ConqueTerm_Syntax*
 ConqueTerm_TERM	conque_term.txt	/*ConqueTerm_TERM*
 ConqueTerm_ToggleKey	conque_term.txt	/*ConqueTerm_ToggleKey*
@@ -212,9 +225,12 @@ NERDTreeOptionSummary	NERD_tree.txt	/*NERDTreeOptionSummary*
 NERDTreeOptions	NERD_tree.txt	/*NERDTreeOptions*
 NERDTreeRender()	NERD_tree.txt	/*NERDTreeRender()*
 NERD_tree.txt	NERD_tree.txt	/*NERD_tree.txt*
+<<<<<<< HEAD
 ReloadAllSnippets()	snipMate.txt	/*ReloadAllSnippets()*
 ReloadSnippets()	snipMate.txt	/*ReloadSnippets()*
 ResetAllSnippets()	snipMate.txt	/*ResetAllSnippets()*
+=======
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 ResetSnippets()	snipMate.txt	/*ResetSnippets()*
 Tlist_Get_Tag_Prototype_By_Line()	taglist.txt	/*Tlist_Get_Tag_Prototype_By_Line()*
 Tlist_Get_Tagname_By_Line()	taglist.txt	/*Tlist_Get_Tagname_By_Line()*
@@ -289,14 +305,21 @@ command-t-usage	command-t.txt	/*command-t-usage*
 command-t-website	command-t.txt	/*command-t-website*
 command-t-wildignore	command-t.txt	/*command-t-wildignore*
 command-t.txt	command-t.txt	/*command-t.txt*
+<<<<<<< HEAD
 conque-config-general	conque_term.txt	/*conque-config-general*
 conque-config-keyboard	conque_term.txt	/*conque-config-keyboard*
 conque-config-unix	conque_term.txt	/*conque-config-unix*
 conque-config-windows	conque_term.txt	/*conque-config-windows*
+=======
+conque-term-Esc	conque_term.txt	/*conque-term-Esc*
+conque-term-F8	conque_term.txt	/*conque-term-F8*
+conque-term-F9	conque_term.txt	/*conque-term-F9*
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 conque-term-api	conque_term.txt	/*conque-term-api*
 conque-term-bugs	conque_term.txt	/*conque-term-bugs*
 conque-term-close	conque_term.txt	/*conque-term-close*
 conque-term-contribute	conque_term.txt	/*conque-term-contribute*
+<<<<<<< HEAD
 conque-term-esc	conque_term.txt	/*conque-term-esc*
 conque-term-events	conque_term.txt	/*conque-term-events*
 conque-term-feedback	conque_term.txt	/*conque-term-feedback*
@@ -304,15 +327,26 @@ conque-term-gen-usage	conque_term.txt	/*conque-term-gen-usage*
 conque-term-get-instance	conque_term.txt	/*conque-term-get-instance*
 conque-term-input-mode	conque_term.txt	/*conque-term-input-mode*
 conque-term-installation	conque_term.txt	/*conque-term-installation*
+=======
+conque-term-feedback	conque_term.txt	/*conque-term-feedback*
+conque-term-get-instance	conque_term.txt	/*conque-term-get-instance*
+conque-term-installation	conque_term.txt	/*conque-term-installation*
+conque-term-installation-instructions	conque_term.txt	/*conque-term-installation-instructions*
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 conque-term-misc	conque_term.txt	/*conque-term-misc*
 conque-term-open	conque_term.txt	/*conque-term-open*
 conque-term-options	conque_term.txt	/*conque-term-options*
 conque-term-read	conque_term.txt	/*conque-term-read*
+<<<<<<< HEAD
 conque-term-register	conque_term.txt	/*conque-term-register*
 conque-term-requirements	conque_term.txt	/*conque-term-requirements*
 conque-term-send	conque_term.txt	/*conque-term-send*
 conque-term-set-callback	conque_term.txt	/*conque-term-set-callback*
 conque-term-setup	conque_term.txt	/*conque-term-setup*
+=======
+conque-term-requirements	conque_term.txt	/*conque-term-requirements*
+conque-term-set-callback	conque_term.txt	/*conque-term-set-callback*
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 conque-term-special-keys	conque_term.txt	/*conque-term-special-keys*
 conque-term-subprocess	conque_term.txt	/*conque-term-subprocess*
 conque-term-usage	conque_term.txt	/*conque-term-usage*
@@ -453,15 +487,23 @@ g:CommandTSelectPrevMap	command-t.txt	/*g:CommandTSelectPrevMap*
 g:CommandTToggleFocusMap	command-t.txt	/*g:CommandTToggleFocusMap*
 g:SuperTabCompletionContexts	supertab.txt	/*g:SuperTabCompletionContexts*
 g:SuperTabContextDefaultCompletionType	supertab.txt	/*g:SuperTabContextDefaultCompletionType*
+<<<<<<< HEAD
 g:SuperTabCrMapping	supertab.txt	/*g:SuperTabCrMapping*
 g:SuperTabDefaultCompletionType	supertab.txt	/*g:SuperTabDefaultCompletionType*
 g:SuperTabLongestEnhanced	supertab.txt	/*g:SuperTabLongestEnhanced*
+=======
+g:SuperTabDefaultCompletionType	supertab.txt	/*g:SuperTabDefaultCompletionType*
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 g:SuperTabLongestHighlight	supertab.txt	/*g:SuperTabLongestHighlight*
 g:SuperTabMappingBackward	supertab.txt	/*g:SuperTabMappingBackward*
 g:SuperTabMappingForward	supertab.txt	/*g:SuperTabMappingForward*
 g:SuperTabMappingTabLiteral	supertab.txt	/*g:SuperTabMappingTabLiteral*
+<<<<<<< HEAD
 g:SuperTabNoCompleteAfter	supertab.txt	/*g:SuperTabNoCompleteAfter*
 g:SuperTabNoCompleteBefore	supertab.txt	/*g:SuperTabNoCompleteBefore*
+=======
+g:SuperTabMidWordCompletion	supertab.txt	/*g:SuperTabMidWordCompletion*
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 g:SuperTabRetainCompletionDuration	supertab.txt	/*g:SuperTabRetainCompletionDuration*
 g:bufExplorerChgWin	bufexplorer.txt	/*g:bufExplorerChgWin*
 g:bufExplorerDefaultHelp	bufexplorer.txt	/*g:bufExplorerDefaultHelp*
@@ -617,6 +659,7 @@ multiple-items-example	yankring.txt	/*multiple-items-example*
 o_[%	matchit.txt	/*o_[%*
 o_]%	matchit.txt	/*o_]%*
 o_g%	matchit.txt	/*o_g%*
+<<<<<<< HEAD
 perlhelp	perlhelp.txt	/*perlhelp*
 perlhelp-bugs	perlhelp.txt	/*perlhelp-bugs*
 perlhelp-contents	perlhelp.txt	/*perlhelp-contents*
@@ -625,6 +668,8 @@ perlhelp-install	perlhelp.txt	/*perlhelp-install*
 perlhelp-manual	perlhelp.txt	/*perlhelp-manual*
 perlhelp-mappings	perlhelp.txt	/*perlhelp-mappings*
 perlhelp.txt	perlhelp.txt	/*perlhelp.txt*
+=======
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 snipMate	snipMate.txt	/*snipMate*
 snipMate-$#	snipMate.txt	/*snipMate-$#*
 snipMate-${#:}	snipMate.txt	/*snipMate-${#:}*
@@ -638,7 +683,10 @@ snipMate-expandtab	snipMate.txt	/*snipMate-expandtab*
 snipMate-features	snipMate.txt	/*snipMate-features*
 snipMate-filename	snipMate.txt	/*snipMate-filename*
 snipMate-indenting	snipMate.txt	/*snipMate-indenting*
+<<<<<<< HEAD
 snipMate-license	snipMate.txt	/*snipMate-license*
+=======
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 snipMate-placeholders	snipMate.txt	/*snipMate-placeholders*
 snipMate-remap	snipMate.txt	/*snipMate-remap*
 snipMate-settings	snipMate.txt	/*snipMate-settings*
@@ -663,16 +711,26 @@ supertab-contextdefault	supertab.txt	/*supertab-contextdefault*
 supertab-contextdiscover	supertab.txt	/*supertab-contextdiscover*
 supertab-contextexample	supertab.txt	/*supertab-contextexample*
 supertab-contexttext	supertab.txt	/*supertab-contexttext*
+<<<<<<< HEAD
 supertab-crmapping	supertab.txt	/*supertab-crmapping*
+=======
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 supertab-defaultcompletion	supertab.txt	/*supertab-defaultcompletion*
 supertab-duration	supertab.txt	/*supertab-duration*
 supertab-forwardbackward	supertab.txt	/*supertab-forwardbackward*
 supertab-intro	supertab.txt	/*supertab-intro*
+<<<<<<< HEAD
 supertab-longestenhanced	supertab.txt	/*supertab-longestenhanced*
 supertab-longesthighlight	supertab.txt	/*supertab-longesthighlight*
 supertab-mappingtabliteral	supertab.txt	/*supertab-mappingtabliteral*
 supertab-options	supertab.txt	/*supertab-options*
 supertab-preventcomplete	supertab.txt	/*supertab-preventcomplete*
+=======
+supertab-longesthighlight	supertab.txt	/*supertab-longesthighlight*
+supertab-mappingtabliteral	supertab.txt	/*supertab-mappingtabliteral*
+supertab-midword	supertab.txt	/*supertab-midword*
+supertab-options	supertab.txt	/*supertab-options*
+>>>>>>> c267d46add5d63ae401ee458a744fdeab3bd4812
 supertab-usage	supertab.txt	/*supertab-usage*
 supertab.txt	supertab.txt	/*supertab.txt*
 surround	surround.txt	/*surround*
