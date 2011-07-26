@@ -1,80 +1,5 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer: amix the lucky stiff
-"             http://amix.dk - amix@amix.dk
+" this file taken heavily from amix.dk
 "
-" Version: 3.3 - 21/01/10 01:05:46
-"
-" Blog_post: 
-"       http://amix.dk/blog/post/19486#The-ultimate-vim-configuration-vimrc
-" Syntax_highlighted:
-"       http://amix.dk/vim/vimrc.html
-" Raw_version: 
-"       http://amix.dk/vim/vimrc.txt
-"
-" How_to_Install:
-"    $ mkdir ~/.vim_runtime
-"    $ svn co svn://orangoo.com/vim ~/.vim_runtime
-"    $ cat ~/.vim_runtime/install.sh
-"    $ sh ~/.vim_runtime/install.sh <system>
-"      <sytem> can be `mac`, `linux` or `windows`
-"
-" How_to_Upgrade:
-"    $ svn update ~/.vim_runtime
-"
-" Sections:
-"    -> General
-"    -> VIM user interface
-"    -> Colors and Fonts
-"    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
-"    -> Command mode related
-"    -> Moving around, tabs and buffers
-"    -> Statusline
-"    -> Parenthesis/bracket expanding
-"    -> General Abbrevs
-"    -> Editing mappings
-"
-"    -> Cope
-"    -> Minibuffer plugin
-"    -> Omni complete functions
-"    -> Python section
-"    -> JavaScript section
-"
-" Plugins_Included:
-"     > minibufexpl.vim - http://www.vim.org/scripts/script.php?script_id=159
-"       Makes it easy to get an overview of buffers:
-"           info -> :e ~/.vim_runtime/plugin/minibufexpl.vim
-"
-"     > bufexplorer - http://www.vim.org/scripts/script.php?script_id=42
-"       Makes it easy to switch between buffers:
-"           info -> :help bufExplorer
-"
-"     > yankring.vim - http://www.vim.org/scripts/script.php?script_id=1234
-"       Emacs's killring, useful when using the clipboard:
-"           info -> :help yankring
-"
-"     > surround.vim - http://www.vim.org/scripts/script.php?script_id=1697
-"       Makes it easy to work with surrounding text:
-"           info -> :help surround
-"
-"     > snipMate.vim - http://www.vim.org/scripts/script.php?script_id=2540
-"       Snippets for many languages (similar to TextMate's):
-"           info -> :help snipMate
-"
-"     > fuzzyfinder - http://www.vim.org/scripts/script.php?script_id=1984
-"       Find files fast (similar to TextMate's feature):
-"           info -> :help fuzzyfinder@en
-"
-"  Revisions:
-"     > 3.3: Added syntax highlighting for Mako mako.vim
-"     > 3.2: Turned on python_highlight_all for better syntax
-"            highlighting for Python
-"     > 3.1: Added revisions ;) and bufexplorer.vim
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -100,7 +25,8 @@ nmap <leader>w :w!<cr>
 map <leader>e :e! ~/.vimrc<cr>
 
 " When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vimrc
+autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd! bufwritepost *.snippets call ReloadAllSnippets()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -157,15 +83,13 @@ syntax enable "Enable syntax hl
 if has("gui_running")
   set guioptions-=T
   set t_Co=256
-  set background=dark
-  colorscheme solarized
+  set background=light
+  "colorscheme solarized
   set nu
 else
-  set background=dark
-  set t_Co=256
-  let g:solarized_termcolors=256
+  set background=light
   set nonu
-  colorscheme solarized
+  "colorscheme solarized
 endif
 
 set encoding=utf8
@@ -329,10 +253,10 @@ map <S-l> :bn<cr>
 map <S-h> :bp<cr>
 
 " Tab configuration
-"map <leader>tn :tabnew %<cr>
-"map <leader>te :tabedit
-"map <leader>tc :tabclose<cr>
-"map <leader>tm :tabmove
+map <leader>tn :tabnew %<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
@@ -467,6 +391,12 @@ let g:bufExplorerShowRelativePath=1
 
 "let g:bufExplorerSortBy = "name"
 
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1 
+
+
 "TODO: I disabled this because it was annoying
 "autocmd BufRead,BufNew :call UMiniBufExplorer
 
@@ -563,7 +493,7 @@ set grepprg=/bin/grep\ -nH
 " => MISC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
-noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+"noremap <leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "Quickly open a buffer for scripbble
 map <leader>q :e ~/buffer<cr>
@@ -576,14 +506,13 @@ map <leader>q :e ~/buffer<cr>
 "
 "set guifont="Bitstream_Vera_Sans_Mono\:h11\:cANSI
 "set guifont=Bitstream Vera Sans Mono 11
-set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
+"set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 "set guifont=Droid_Sans_Mono_Slashed:h11:cANSI
 "set guifont=Bitstream_Vera_Sans_Mono:h11:cANSI
 "set guifont=DejaVu\ Sans\ Mono\ 11
 "set guifont=Inconsolata\ 12
 "set guifont=Inconsolata:h13:cANSI
-"set guifont=Consolas:h14:cANSI
-"set guifont=Consolas:h11:cANSI
+set guifont=Consolas:h11:cANSI
 
 set t_Co=256
 set number
@@ -596,33 +525,28 @@ map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "Fullscreen
 set go-=m go-=T go-=l go-=L go-=r go-=R go-=b go-=F go=
 set lines=999 columns=999
-set lines=1000 columns=1000
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 
 set completeopt=menuone,longest,preview
 
-imap <silent> <expr> <buffer> <CR> pumvisible() ? "<CR><C-R>=(col('.')-1&&match(getline(line('.')), '\\.',
-      \ col('.')-2) == col('.')-2)?\"\<lt>C-X>\<lt>C-O>\":\"\"<CR>"
-      \ : "<CR>"
+"imap <silent> <expr> <buffer> <CR> pumvisible() ? "<CR><C-R>=(col('.')-1&&match(getline(line('.')), '\\.',
+"      \ col('.')-2) == col('.')-2)?\"\<lt>C-X>\<lt>C-O>\":\"\"<CR>"
+"      \ : "<CR>"
 
-"map <leader>cmd :ConqueTermSplit cmd<CR>
-"map <leader>bash :ConqueTermSplit C:\Cygwin\Cygwin.bat<CR>
+map <leader>cmd :ConqueTermSplit cmd<CR>
+map <leader>bash :ConqueTermSplit C:\Cygwin\Cygwin.bat<CR>
 "map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh.exe<CR>
-"map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh --login<CR>
-map <leader>zsh :ConqueTermSplit zsh<CR>
-map <leader>csh :ConqueTermSplit csh<CR>
+map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh --login<CR>
 
-"au GUIEnter * simalt ~x 
+au GUIEnter * simalt ~x 
 "x on an English Windows version. n on a French one
 set ff=unix
 
-"map <leader>P :cd C:\sync_workspaces\trasmuss\PDE_Automation\Python<CR>
-"map <leader>G :cd H:\python\gui\<CR>
-"map <leader>a :args *.py<CR>
 map <leader>P :cd C:\sync_workspaces\trasmuss\PDE_Automation\Python<CR>
 map <leader>a :cd C:\Users\trasmuss\repositories\python_automation_gui\gui<CR>:args *.py<CR>
+"map <leader>a :cd C:\Users\trasmuss\python_test<CR>:args *.py<CR>
 "set autochdir
 
 "added this shell enhancement script
@@ -647,20 +571,22 @@ map <leader>y :YRShow<CR>
 "noremap ; :
 
 "Fix slow tmp files when using windows shares
-"set directory^=$HOME/tmp
-"let g:loaded_matchparen = 1
-map <leader>E :cd /procs/cs200a/projects/ECP4/users/trasmuss/ws/amber<CR>
-map <leader>l :!ls<CR>
-
-"Disable annoying tabs
-set showtabline=0
-set lines=60 "looks good
-set columns=213 "rockin
-map <leader>. :set lines=60 columns=213<CR>
-map <leader>B :cd ~/bandgap<CR>:args *<CR>
 set directory^=$HOME/tmp
 let g:loaded_matchparen = 1
 
 map <leader>l :set background=light<cr>
 map <leader>d :set background=dark<cr>
 "map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+"set lines=40
+"set columns=80
+
+"make perl module docs easier to read (perlhelp.vim)
+let perl_include_pod=1
+set showtabline=0
+
+"pathogen setup
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+"showmarks
+let g:showmarks_enable=0
