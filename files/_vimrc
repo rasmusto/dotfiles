@@ -590,3 +590,4 @@ call pathogen#runtime_append_all_bundles()
 
 "showmarks
 let g:showmarks_enable=0
+colorscheme solarized
