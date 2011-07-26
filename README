@@ -3,3 +3,23 @@ This is my attempt as making any unix/linux machine I'm on feel like home.
 The files include a ton of good configuration for zsh, git, vim, and others.
 
 The setup.sh script will link all of the files in my repo to your home directory, but will fail if you have any files/directories of the same name.
+
+The setup.bat script will set everything up on windows using mklink (assuming C:\ is where your home directory is)
+
+vim plugins included:
+    command-t
+    minibufexpl
+    mru
+    nerdcommenter
+    nerdtree
+    showmarks
+    snipmate
+    supertab
+    taglist
+    vim-colors-solarized
+    conque
+    fugitive
+    vim-git
+    surround
+    yankring
+    pathogen (not a git submodule)
