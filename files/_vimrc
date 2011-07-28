@@ -540,7 +540,7 @@ map <leader>bash :ConqueTermSplit C:\Cygwin\Cygwin.bat<CR>
 "map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh.exe<CR>
 map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh --login<CR>
 
-au GUIEnter * simalt ~x 
+"au GUIEnter * simalt ~x 
 "x on an English Windows version. n on a French one
 set ff=unix
 
