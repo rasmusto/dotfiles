@@ -545,7 +545,8 @@ au GUIEnter * simalt ~x
 set ff=unix
 
 map <leader>P :cd C:\sync_workspaces\trasmuss\PDE_Automation\Python<CR>
-map <leader>a :cd C:\Users\trasmuss\repositories\python_automation_gui\gui<CR>:args *.py<CR>
+map <leader>a :cd C:\Users\trasmuss\repos\python_automation_gui\gui<CR>:args *.py<CR>
+map <leader>r :cd C:\Users\trasmuss\repos
 "map <leader>a :cd C:\Users\trasmuss\python_test<CR>:args *.py<CR>
 "set autochdir
 
@@ -590,4 +591,5 @@ call pathogen#runtime_append_all_bundles()
 
 "showmarks
 let g:showmarks_enable=0
+
 colorscheme solarized
