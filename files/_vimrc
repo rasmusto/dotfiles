@@ -80,7 +80,8 @@ if has('mac')
 elseif has('win32')
     set guifont=Consolas:h11:cANSI
 elseif has('unix')
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
+    "set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
+    set guifont=GohuFont
     set shell=/bin/zsh
 endif
 
@@ -522,7 +523,7 @@ map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh --login<CR>
 
 "au GUIEnter * simalt ~x 
 "x on an English Windows version. n on a French one
-set ff=unix
+"set ff=unix
 
 "map <leader>P :cd C:\sync_workspaces\trasmuss\PDE_Automation\Python<CR>
 "map <leader>a :cd C:\Users\trasmuss\repositories\python_automation_gui\gui<CR>:args *.py<CR>
