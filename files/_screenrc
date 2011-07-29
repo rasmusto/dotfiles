@@ -1,0 +1,25 @@
+bind 'q' quit
+screen -t csh 0
+#screen -t zsh 1 zsh
+#screen -t vim 2 vim
+altscreen on
+vbell off
+startup_message off
+term screen-256color
+#bind ',' prev
+#bind '.' next
+
+bind 'h' prev
+bind 'l' next
+
+#change the hardstatus settings to give an window list at the bottom of the                                                                        
+##screen, with the time and date and with the current window highlighted                                                                            
+hardstatus alwayslastline
+#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on
+
+termcapinfo xterm* ti@:te@
