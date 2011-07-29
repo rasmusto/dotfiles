@@ -52,3 +52,9 @@
 [submodule "pydoc.vim"]
 	path = pydoc.vim
 	url = https://github.com/fs111/pydoc.vim.git
+[submodule "perlomni.vim"]
+	path = perlomni.vim
+	url = http://github.com/c9s/perlomni.vim.git
+[submodule "syntastic"]
+	path = syntastic
+	url = http://github.com/scrooloose/syntastic.git
