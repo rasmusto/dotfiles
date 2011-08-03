@@ -516,10 +516,11 @@ set completeopt=menuone,longest,preview
 "      \ col('.')-2) == col('.')-2)?\"\<lt>C-X>\<lt>C-O>\":\"\"<CR>"
 "      \ : "<CR>"
 
-map <leader>cmd :ConqueTermSplit cmd<CR>
-map <leader>bash :ConqueTermSplit C:\Cygwin\Cygwin.bat<CR>
+"map <leader>cmd :ConqueTermSplit cmd<CR>
+"map <leader>bash :ConqueTermSplit C:\Cygwin\Cygwin.bat<CR>
 "map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh.exe<CR>
-map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh --login<CR>
+map <leader>csh :ConqueTermSplit csh<CR>
+map <leader>zsh :ConqueTermSplit zsh<CR>
 
 "au GUIEnter * simalt ~x 
 "x on an English Windows version. n on a French one
@@ -734,3 +735,5 @@ function! s:Median(nums)
         return (nums[l/2] + nums[(l/2)-1]) / 2
     endif
 endfunction
+
+"REMEMBER THE ':!COLUMN -t' COMMAND!!!!"

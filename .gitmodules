@@ -58,3 +58,6 @@
 [submodule "syntastic"]
 	path = syntastic
 	url = http://github.com/scrooloose/syntastic.git
+[submodule "marvim"]
+	path = marvim
+	url = http://github.com/vim-scripts/marvim.git
