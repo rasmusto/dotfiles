@@ -737,3 +737,20 @@ function! s:Median(nums)
 endfunction
 
 "REMEMBER THE ':!COLUMN -t' COMMAND!!!!"
+
+"whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+if exists("did_load_csvfiletype")
+    finish
+endif
+let did_load_csvfiletype=1
+
+augroup filetypedetect
+    au! BufRead,BufNewFile *.csv,*.dat	setfiletype csv
+augroup END

@@ -61,3 +61,9 @@
 [submodule "marvim"]
 	path = marvim
 	url = http://github.com/vim-scripts/marvim.git
+[submodule "csv.vim"]
+	path = csv.vim
+	url = http://github.com/vim-scripts/csv.vim.git
+[submodule "vim-latex.github.com"]
+	path = vim-latex.github.com
+	url = http://github.com/vim-latex/vim-latex.github.com.git
