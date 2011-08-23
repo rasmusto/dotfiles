@@ -23,3 +23,29 @@ vim plugins included:
     surround
     yankring
     pathogen (not a git submodule)
+
+list of bundles:
+    SearchComplete
+    ShowMarks
+    YankRing.vim
+    command-t
+    csv.vim
+    marvim
+    minibufexpl.vim
+    mru.vim
+    nerdcommenter
+    nerdtree
+    perlomni.vim
+    pydoc.vim
+    snipmate.vim
+    supertab
+    syntastic
+    systemverilog
+    taglist.vim
+    vim-colors-solarized
+    vim-conque
+    vim-fugitive
+    vim-git
+    vim-latex.github.com
+    vim-pathogen
+    vim-surround

@@ -1,4 +1,1 @@
-*.tar.gz
-*.tar
-lattice
-tags
+_zshrc.local
