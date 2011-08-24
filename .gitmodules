@@ -63,4 +63,7 @@
 	url = https://github.com/vim-scripts/csv.vim.git
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
-	url = https://github.com/vim-latex/vim-latex.github.com.git
+	url = https://github.com/jcf/vim-latex.git
+[submodule "autoload"]
+	path = autoload
+	url = https://github.com/paulnicholson/vim-pathogen.git

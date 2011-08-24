@@ -18,28 +18,25 @@ then
 
     #vim
     if [ -f ~/.vimrc ]; then mv ~/.vimrc ~/.vimrc.bak; fi
-    ln -s ./files/_vimrc ~/.vimrc 
+    ln -s ./_vimrc ~/.vimrc 
     if [ -f ~/.gvimrc ]; then mv ~/.gvimrc ~/.gvimrc.bak; fi 
-    ln -s ./files/_gvimrc ~/.gvimrc
-
-    if [ -d ~/.vim ]; then mv ~/.vim ~/.vim.bak; fi
-    ln -s -n ./files/vimfiles ~/.vim
+    ln -s ./_gvimrc ~/.gvimrc
 
     #zsh
     if [ -f ~/.zshrc ]; then mv ~/.zshrc ~/.zshrc.bak; fi
-    ln -s ./files/_zshrc ~/.zshrc
+    ln -s ./_zshrc ~/.zshrc
 
     #svn
     if [ -d ~/.subversion ]; then mv ~/.subversion ~/.subversion.bak; fi
-    ln -s -n ./files/subversion ~/.subversion
+    ln -s -n ./subversion ~/.subversion
 
     #scripts
     if [ -d ~/.bin ]; then mv ~/.bin ~/.bin.bak; fi
-    ln -s -n ./files/bin ~/.bin
+    ln -s -n ./bin ~/.bin
 
     #tmux
     if [ -f ~/.tmux.conf ]; then mv ~/.tmux.conf ~/.tmux.conf.bak; fi
-    ln -s -n ./files/_tmux.conf ~/.tmux.conf
+    ln -s -n ./_tmux.conf ~/.tmux.conf
 fi
 
 exit
