@@ -6,23 +6,7 @@ The setup.sh script will link all of the files in my repo to your home directory
 
 The setup.bat script will set everything up on windows using mklink (assuming C:\ is where your home directory is)
 
-vim plugins included:
-    command-t
-    minibufexpl
-    mru
-    nerdcommenter
-    nerdtree
-    showmarks
-    snipmate
-    supertab
-    taglist
-    vim-colors-solarized
-    conque
-    fugitive
-    vim-git
-    surround
-    yankring
-    pathogen (not a git submodule)
+This repository should be named /home/<user>/.vim on linux, or C:\Users\<user>\vimfiles on Windows.
 
 list of bundles:
     SearchComplete
