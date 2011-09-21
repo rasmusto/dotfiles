@@ -67,3 +67,9 @@
 [submodule "autoload"]
 	path = autoload
 	url = https://github.com/paulnicholson/vim-pathogen.git
+[submodule "bundle/gitv"]
+	path = bundle/gitv
+	url = http://github.com/gregsexton/gitv.git
+[submodule "bundle/pep8"]
+	path = bundle/pep8
+	url = https://github.com/cburroughs/pep8.py.git
