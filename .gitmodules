@@ -70,9 +70,21 @@
 [submodule "bundle/textile"]
 	path = bundle/textile
 	url = http://github.com/timcharper/textile.vim.git
-[submodule "bundle/gitv"]
-	path = bundle/gitv
-	url = http://github.com/gregsexton/gitv.git
 [submodule "bundle/perl-mauke"]
 	path = bundle/perl-mauke
 	url = http://github.com/vim-scripts/perl-mauke.vim.git
+[submodule "bundle/gitv"]
+	path = bundle/gitv
+	url = http://github.com/gregsexton/gitv.git
+[submodule "bundle/vim-scala"]
+	path = bundle/vim-scala
+	url = https://github.com/bmatheny/vim-scala.git
+[submodule "bundle/Vim-R-plugin"]
+	path = bundle/Vim-R-plugin
+	url = https://github.com/vim-scripts/Vim-R-plugin.git
+[submodule "bundle/haskellmode-vim"]
+	path = bundle/haskellmode-vim
+	url = https://github.com/lukerandall/haskellmode-vim.git
+[submodule "bundle/jpythonfold"]
+	path = bundle/jpythonfold
+	url = https://github.com/vim-scripts/jpythonfold.vim.git
