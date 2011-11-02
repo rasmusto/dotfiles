@@ -87,9 +87,9 @@ endif
 
 if has('gui_running')
     "Fullscreen
-    set go-=m go-=T go-=l go-=L go-=r go-=R go-=b go-=F go=
+    "set go-=m go-=T go-=l go-=L go-=r go-=R go-=b go-=F go=
     set t_Co=256
-    set background=light
+    set background=dark
     colorscheme solarized
 else
     set t_Co=256
@@ -394,7 +394,7 @@ let g:bufExplorerShowRelativePath=1
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1 
+let g:miniBufExplModSelTarget = 1
 
 
 "TODO: I disabled this because it was annoying
@@ -754,3 +754,14 @@ let did_load_csvfiletype=1
 augroup filetypedetect
     au! BufRead,BufNewFile *.csv,*.dat	setfiletype csv
 augroup END
+
+"gitv
+cabbrev gitv Gitv
+let g:Gitv_OpenHorizontal = 1
+
+"textile
+let g:TextileOS="Linux"
+let g:TextileBrowser="/usr/local/bin/firefox"
+
+set mouse=a
+set ttymouse=xterm2
