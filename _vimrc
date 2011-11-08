@@ -43,7 +43,7 @@ set wildmenu "Turn on WiLd menu
 
 set ruler "Always show current position
 
-set cmdheight=2 "The commandbar height
+set cmdheight=1 "The commandbar height
 
 set hid "Change buffer - without saving
 
@@ -82,12 +82,12 @@ elseif has('win32')
 elseif has('unix')
     "set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
     set guifont=GohuFont
-    set shell=/bin/zsh
+    set shell=/bin/bash
 endif
 
 if has('gui_running')
     "Fullscreen
-    "set go-=m go-=T go-=l go-=L go-=r go-=R go-=b go-=F go=
+    set go-=m go-=T go-=l go-=L go-=r go-=R go-=b go-=F go=
     set t_Co=256
     set background=dark
     colorscheme solarized
@@ -147,7 +147,7 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSearch('gv')<CR>
-map <leader>g :vimgrep  ./*<left><left><left><left>
+map <leader>vg :vimgrep  ./*<left><left><left><left>
 
 
 function! CmdLine(str)
@@ -223,7 +223,7 @@ func! DeleteTillSlash()
         else
             let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
         endif
-    endif  
+    endif
     return g:cmd_edited
 endfunc
 
@@ -247,10 +247,10 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>
+map <leader>dd :Bclose<cr>
 
 " Close all the buffers
-map <leader>ba :1,300 bd!<cr>
+map <leader>da :1,300 bd!<cr>
 
 " Use the arrows to something useful
 map <right> :bn<cr>
@@ -259,10 +259,10 @@ map <S-l> :bn<cr>
 map <S-h> :bp<cr>
 
 " Tab configuration
-map <leader>tn :tabnew %<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+"map <leader>tn :tabnew %<cr>
+"map <leader>te :tabedit
+"map <leader>tc :tabclose<cr>
+"map <leader>tm :tabmove
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
@@ -504,7 +504,8 @@ set number
 
 let Tlist_Ctags_Cmd = "ctags"
 let Tlist_WinWidth = 50
-map <F4> :TlistToggle<cr>
+"map <F4> :TlistToggle<cr>
+map <F4> :TagbarToggle<cr>
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 au FileType python set omnifunc=pythoncomplete#Complete
@@ -522,7 +523,7 @@ set completeopt=menuone,longest,preview
 map <leader>csh :ConqueTermSplit csh<CR>
 map <leader>zsh :ConqueTermSplit zsh<CR>
 
-"au GUIEnter * simalt ~x 
+"au GUIEnter * simalt ~x
 "x on an English Windows version. n on a French one
 "set ff=unix
 
@@ -554,8 +555,8 @@ map <leader>y :YRShow<CR>
 set directory^=$HOME/tmp
 let g:loaded_matchparen = 1
 
-map <leader>l :set background=light<cr>
-map <leader>d :set background=dark<cr>
+"map <leader>l :set background=light<cr>
+"map <leader>d :set background=dark<cr>
 
 "make perl module docs easier to read (perlhelp.vim)
 let perl_include_pod=1
@@ -765,3 +766,14 @@ let g:TextileBrowser="/usr/local/bin/firefox"
 
 set mouse=a
 set ttymouse=xterm2
+
+set shellcmdflag=-ic
+set scrollopt+=hor
+set scrollopt+=ver
+set scrollopt+=jump
+
+nmap <silent> <leader>j :LustyJuggler<CR>
+nmap <silent> <leader>f :LustyFilesystemExplorer<CR>
+nmap <silent> <leader>r :LustyFilesystemExplorerFromHere<CR>
+nmap <silent> <leader>b :LustyBufferExplorer<CR>
+nmap <silent> <leader>g :LustyBufferGrep<CR>

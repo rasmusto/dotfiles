@@ -78,13 +78,28 @@
 	url = http://github.com/gregsexton/gitv.git
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
-	url = https://github.com/bmatheny/vim-scala.git
+	url = http://github.com/bmatheny/vim-scala.git
 [submodule "bundle/Vim-R-plugin"]
 	path = bundle/Vim-R-plugin
-	url = https://github.com/vim-scripts/Vim-R-plugin.git
+	url = http://github.com/vim-scripts/Vim-R-plugin.git
 [submodule "bundle/haskellmode-vim"]
 	path = bundle/haskellmode-vim
-	url = https://github.com/lukerandall/haskellmode-vim.git
+	url = http://github.com/lukerandall/haskellmode-vim.git
 [submodule "bundle/jpythonfold"]
 	path = bundle/jpythonfold
-	url = https://github.com/vim-scripts/jpythonfold.vim.git
+	url = http://github.com/vim-scripts/jpythonfold.vim.git
+[submodule "bundle/lusty"]
+	path = bundle/lusty
+	url = http://github.com/sjbach/lusty.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = http://github.com/majutsushi/tagbar.git
+[submodule "bundle/ack.vim"]
+	path = bundle/ack.vim
+	url = http://github.com/mileszs/ack.vim.git
+[submodule "bundle/vim-slime"]
+	path = bundle/vim-slime
+	url = http://github.com/jpalardy/vim-slime.git
+[submodule "bundle/gundo.vim"]
+	path = bundle/gundo.vim
+	url = http://github.com/sjl/gundo.vim.git
