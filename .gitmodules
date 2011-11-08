@@ -1,9 +1,6 @@
 [submodule "bundle/SearchComplete"]
 	path = bundle/SearchComplete
 	url = http://github.com/vim-scripts/SearchComplete.git
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule "bundle/minibufexpl"]
 	path = bundle/minibufexpl
 	url = http://github.com/fholgado/minibufexpl.vim.git
