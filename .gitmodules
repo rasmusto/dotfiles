@@ -1,9 +1,6 @@
 [submodule "bundle/SearchComplete"]
 	path = bundle/SearchComplete
 	url = http://github.com/vim-scripts/SearchComplete.git
-[submodule "bundle/minibufexpl"]
-	path = bundle/minibufexpl
-	url = http://github.com/fholgado/minibufexpl.vim.git
 [submodule "bundle/mru"]
 	path = bundle/mru
 	url = http://github.com/vim-scripts/mru.vim.git
@@ -22,9 +19,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = http://github.com/ervandew/supertab.git
-[submodule "bundle/taglist"]
-	path = bundle/taglist
-	url = http://github.com/arsenerei/taglist.vim.git
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = http://github.com/altercation/vim-colors-solarized.git
@@ -100,3 +94,9 @@
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim
 	url = http://github.com/sjl/gundo.vim.git
+[submodule "bundle/cscope_macros.vim"]
+	path = bundle/cscope_macros.vim
+	url = http://github.com/vim-scripts/cscope_macros.vim.git
+[submodule "bundle/increment.vim"]
+	path = bundle/increment.vim
+	url = http://github.com/vim-scripts/increment.vim.git

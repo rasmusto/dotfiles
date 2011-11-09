@@ -777,3 +777,5 @@ nmap <silent> <leader>f :LustyFilesystemExplorer<CR>
 nmap <silent> <leader>r :LustyFilesystemExplorerFromHere<CR>
 nmap <silent> <leader>b :LustyBufferExplorer<CR>
 nmap <silent> <leader>g :LustyBufferGrep<CR>
+
+let g:tagbar_left = 1
