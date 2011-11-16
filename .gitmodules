@@ -102,4 +102,7 @@
 	url = http://github.com/vim-scripts/increment.vim.git
 [submodule "bundle/colorizer"]
 	path = bundle/colorizer
-	url = https://github.com/lilydjwg/colorizer.git
+	url = http://github.com/lilydjwg/colorizer.git
+[submodule "snippets"]
+	path = snippets
+	url = http://github.com/scrooloose/snipmate-snippets.git

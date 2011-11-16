@@ -1,3 +1,6 @@
 _zshrc.local
 .netrwhist
 bundle
+bundle/*
+snippets/*
+autoload/*
