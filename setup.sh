@@ -18,8 +18,8 @@ then
 
     #vim
     if [ -f ~/.vimrc ]; then mv ~/.vimrc ~/.vimrc.bak; fi
-    ln -s ./_vimrc ~/.vimrc 
-    if [ -f ~/.gvimrc ]; then mv ~/.gvimrc ~/.gvimrc.bak; fi 
+    ln -s ./_vimrc ~/.vimrc
+    if [ -f ~/.gvimrc ]; then mv ~/.gvimrc ~/.gvimrc.bak; fi
     ln -s ./_gvimrc ~/.gvimrc
 
     #zsh

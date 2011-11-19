@@ -1,3 +1,4 @@
+let g:LustyExplorerSuppressRubyWarning
 " this file taken heavily from amix.dk
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
