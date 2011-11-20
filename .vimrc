@@ -1,4 +1,8 @@
-let g:LustyExplorerSuppressRubyWarning
+"let $TMP="c:/tmp"
+"set directory^=$HOME/tmp
+"set directory+=,~/tmp,$TMP
+" Suppress warnings about not having ruby (on win)
+let g:LustyExplorerSuppressRubyWarning = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -45,6 +49,10 @@ set ruler "Always show current position
 set cmdheight=1 "The commandbar height
 set hid "Change buffer - without saving
 
+" Mouse control in terminal
+set mouse=a
+set ttymouse=xterm2
+
 " Set backspace config
 set backspace=eol,start,indent
 "set whichwrap+=<,>,h,l
@@ -55,31 +63,36 @@ set hlsearch "Highlight search things
 set incsearch "Make search act like search in modern browsers
 set magic "Set magic on, for regular expressions
 
-set showmatch "Show matching bracets when text indicator is over them
-set matchtime=2 "How many tenths of a second to blink
+set showmatch
+set matchtime=2
 
 " No sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
 
+" Lock scrolling horizontally when using scrollbind
+set scrollopt+=hor
+set scrollopt+=ver
+set scrollopt+=jump
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax enable "Enable syntax hl
+syntax enable
 
 " Set font according to system
 if has('mac')
-    set gfn=Bitstream\ Vera\ Sans\ Mono:h13
+    set gfn=Bitstream\ Vera\ Sans\ Mono:h12
     set shell=/bin/bash
 elseif has('win32')
-    set guifont=Deja_Vu_Sans_Mono:h12:cANSI
+    set shellcmdflag=/c
+    set guifont=DejaVu_Sans_Mono:h12:cANSI
 elseif has('unix')
-    "set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
     set guifont=GohuFont
     set shell=/bin/bash
 endif
+
 
 if has('gui_running')
     "Fullscreen
@@ -124,14 +137,9 @@ set smarttab
 set lbr
 set tw=500
 
-set ai "Auto indent
-set si "Smart indet
+set autoindent
+set smartindent
 set nowrap "Don't wrap lines
-
-map <leader>t2 :setlocal shiftwidth=2<cr>
-map <leader>t4 :setlocal shiftwidth=4<cr>
-map <leader>t8 :setlocal shiftwidth=8<cr>
-
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -176,9 +184,9 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Command mode related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs and buffers
@@ -186,7 +194,7 @@ cnoremap <C-N> <Down>
 
 map <silent> <leader><cr> :noh<cr>
 
-" Smart way to move btw. windows
+" Window movement
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -195,12 +203,10 @@ map <C-l> <C-W>l
 " Close the current buffer
 map <leader>dd :Bclose<cr>
 
-" Close all the buffers
-map <leader>da :1,300 bd!<cr>
+" When pressing <leader>cd switch to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>
 
-" Use the arrows to something useful
-map <right> :bn<cr>
-map <left> :bp<cr>
+" Buffer changing
 map <S-l> :bn<cr>
 map <S-h> :bp<cr>
 
@@ -230,38 +236,9 @@ endfunction
 " Specify the behavior when switching between buffers
 try
     set switchbuf=usetab
-    set showtabline=2
+    set showtabline=1
 catch
 endtry
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Remap VIM 0
-map 0 ^
-
-"Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-if has('mac')
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
-endif
-
-"Delete trailing white space, useful for Python ;)
-func! DeleteTrailingWS()
-    exe "normal mz"
-    %s/\s\+$//ge
-    exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -301,44 +278,27 @@ map <leader>s? z=
 """"""""""""""""""""""""""""""
 au FileType python set nocindent
 let python_highlight_all = 1
-au FileType python syn keyword pythonDecorator True None False self
-
-au BufNewFile,BufRead *.jinja set syntax=htmljinja
-au BufNewFile,BufRead *.mako set ft=mako
 
 au FileType python set smartindent
 au FileType python set tabstop=4
 au FileType python set shiftwidth=4
 au FileType python set expandtab
 
+"Delete trailing white space
+func! DeleteTrailingWS()
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
 
-""""""""""""""""""""""""""""""
-" => JavaScript section
-"""""""""""""""""""""""""""""""
-au FileType javascript call JavaScriptFold()
-au FileType javascript setl fen
-au FileType javascript setl nocindent
-
-au FileType javascript imap <c-t> AJS.log();<esc>hi
-au FileType javascript imap <c-a> alert();<esc>hi
-
-function! JavaScriptFold()
-    setl foldmethod=syntax
-    setl foldlevelstart=1
-    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-
-    function! FoldText()
-        return substitute(getline(v:foldstart), '{.*', '{...}', '')
-    endfunction
-    setl foldtext=FoldText()
-endfunction
-
-
-""""""""""""""""""""""""""""""
-" => Vim grep
-""""""""""""""""""""""""""""""
-let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated .git'
-set grepprg=/bin/grep\ -nH
+"whitespace
+highlight ExtraWhitespace ctermbg=0 guibg=#073642
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -351,50 +311,12 @@ noremap <leader>mmm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 map <leader>q :e ~/buffer<cr>
 
 set number
-
-let Tlist_Ctags_Cmd = "ctags"
-let Tlist_WinWidth = 50
-
 map <F4> :TagbarToggle<cr>
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 
-set completeopt=menuone,longest,preview
-
-"added this shell enhancement script
-"http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
-function! s:ExecuteInShell(command)
-    let command = join(map(split(a:command), 'expand(v:val)'))
-    let winnr = bufwinnr('^' . command . '$')
-    silent! execute  winnr < 0 ? 'botright new ' . fnameescape(command) : winnr . 'wincmd w'
-    setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap number
-    echo 'Execute ' . command . '...'
-    silent! execute 'silent %!'. command
-    silent! execute 'resize ' . line('$')
-    silent! redraw
-    silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
-    silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>'
-    echo 'Shell command ' . command . ' executed.'
-endfunction
-command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
-
-map <leader>y :YRShow<CR>
-
-"Fix slow tmp files when using windows shares
-set directory^=$HOME/tmp
-let g:loaded_matchparen = 1
-
-"map <leader>l :set background=light<cr>
-"map <leader>d :set background=dark<cr>
-
-"make perl module docs easier to read (perlhelp.vim)
-let perl_include_pod=1
-set showtabline=0
-
-"showmarks
-let g:showmarks_enable=0
 
 """"""""""""""""""""""""""""""
 " => Statusline
@@ -572,38 +494,11 @@ function! s:Median(nums)
     endif
 endfunction
 
-"whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
-if exists("did_load_csvfiletype")
-    finish
-endif
-let did_load_csvfiletype=1
 
-augroup filetypedetect
-    au! BufRead,BufNewFile *.csv,*.dat	setfiletype csv
-augroup END
-
-"gitv
-cabbrev gitv Gitv
-let g:Gitv_OpenHorizontal = 1
-
-"textile
-let g:TextileOS="Linux"
-let g:TextileBrowser="/usr/local/bin/firefox"
-
-set mouse=a
-set ttymouse=xterm2
-
-set shellcmdflag=-ic
-set scrollopt+=hor
-set scrollopt+=ver
-set scrollopt+=jump
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin-specific mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nmap <silent> <leader>j :LustyJuggler<CR>
 nmap <silent> <leader>f :LustyFilesystemExplorer<CR>
@@ -612,3 +507,13 @@ nmap <silent> <leader>b :LustyBufferExplorer<CR>
 nmap <silent> <leader>g :LustyBufferGrep<CR>
 
 let g:tagbar_left = 1
+
+"showmarks
+let g:showmarks_enable=0
+
+"for vimshell/vimrun.exe
+set shellquote=
+set shellslash
+set shellxquote=
+set shellpipe=2>&1\|tee
+set shellredir=>%s\ 2>&1
