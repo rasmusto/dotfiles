@@ -1,6 +1,5 @@
 let g:LustyExplorerSuppressRubyWarning
-" this file taken heavily from amix.dk
-"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -33,35 +32,31 @@ autocmd! bufwritepost *.snippets call ReloadAllSnippets()
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
+set autochdir
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the curors - when moving vertical..
 set so=7
-
 set wildmenu "Turn on WiLd menu
-
 set ruler "Always show current position
-
 set cmdheight=1 "The commandbar height
-
 set hid "Change buffer - without saving
 
 " Set backspace config
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+"set whichwrap+=<,>,h,l
+set whichwrap+=<,>
 
 set ignorecase "Ignore case when searching
-
 set hlsearch "Highlight search things
-
 set incsearch "Make search act like search in modern browsers
-
 set magic "Set magic on, for regular expressions
 
 set showmatch "Show matching bracets when text indicator is over them
-set mat=2 "How many tenths of a second to blink
+set matchtime=2 "How many tenths of a second to blink
 
 " No sound on errors
 set noerrorbells
@@ -79,7 +74,7 @@ if has('mac')
     set gfn=Bitstream\ Vera\ Sans\ Mono:h13
     set shell=/bin/bash
 elseif has('win32')
-    set guifont=Consolas:h11:cANSI
+    set guifont=Deja_Vu_Sans_Mono:h12:cANSI
 elseif has('unix')
     "set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
     set guifont=GohuFont
@@ -155,7 +150,7 @@ function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
-endfunction 
+endfunction
 
 " From an idea by Michael Naumann
 function! VisualSearch(direction) range
@@ -178,67 +173,17 @@ function! VisualSearch(direction) range
 endfunction
 
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Command mode related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Smart mappings on the command line
-cno $h e ~/
-cno $d e ~/Desktop/
-cno $j e ./
-cno $c e <C-\>eCurrentFileDir("e")<cr>
-
-" $q is super useful when browsing on the command line
-cno $q <C-\>eDeleteTillSlash()<cr>
-
-" Bash like keys for the command line
-cnoremap <C-A>      <Home>
-cnoremap <C-E>      <End>
-cnoremap <C-K>      <C-U>
 
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
-" Useful on some European keyboards
-map ½ $
-imap ½ $
-vmap ½ $
-cmap ½ $
-
-
-func! Cwd()
-    let cwd = getcwd()
-    return "e " . cwd
-endfunc
-
-func! DeleteTillSlash()
-    let g:cmd = getcmdline()
-    if MySys() == "linux" || MySys() == "mac"
-        let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
-    else
-        let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\]\\).*", "\\1", "")
-    endif
-    if g:cmd == g:cmd_edited
-        if MySys() == "linux" || MySys() == "mac"
-            let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
-        else
-            let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
-        endif
-    endif
-    return g:cmd_edited
-endfunc
-
-func! CurrentFileDir(cmd)
-    return a:cmd . " " . expand("%:p:h") . "/"
-endfunc
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map space to / (search) and c-space to ? (backgwards search)
-map <space> /
-map <c-space> ?
+
 map <silent> <leader><cr> :noh<cr>
 
 " Smart way to move btw. windows
@@ -259,15 +204,8 @@ map <left> :bp<cr>
 map <S-l> :bn<cr>
 map <S-h> :bp<cr>
 
-" Tab configuration
-"map <leader>tn :tabnew %<cr>
-"map <leader>te :tabedit
-"map <leader>tc :tabclose<cr>
-"map <leader>tm :tabmove
-
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
-
 
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
@@ -292,44 +230,10 @@ endfunction
 " Specify the behavior when switching between buffers
 try
     set switchbuf=usetab
-    set stal=2
+    set showtabline=2
 catch
 endtry
 
-
-""""""""""""""""""""""""""""""
-" => Statusline
-""""""""""""""""""""""""""""""
-" Always hide the statusline
-set laststatus=2
-
-" Format the statusline
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\ %{fugitive#statusline()}
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Parenthesis/bracket expanding
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $$ <esc>`>a"<esc>`<i"<esc>
-vnoremap $q <esc>`>a'<esc>`<i'<esc>
-vnoremap $e <esc>`>a"<esc>`<i"<esc>
-
-" Map auto complete of (, ", ', [
-inoremap $1 ()<esc>i
-inoremap $2 []<esc>i
-inoremap $3 {}<esc>i
-inoremap $4 {<esc>o}<esc>O
-inoremap $q ''<esc>i
-inoremap $e ""<esc>i
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General Abbrevs
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -372,44 +276,11 @@ map <leader>p :cp<cr>
 map <M-p> :cp<cr>
 
 
-""""""""""""""""""""""""""""""
-" => bufExplorer plugin
-""""""""""""""""""""""""""""""
-let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
-
-
-""""""""""""""""""""""""""""""
-" => Minibuffer plugin
-""""""""""""""""""""""""""""""
-"let g:miniBufExplModSelTarget = 1
-"let g:miniBufExplorerMoreThanOne = 2
-"let g:miniBufExplModSelTarget = 0
-"let g:miniBufExplUseSingleClick = 1
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplVSplit = 25
-"let g:miniBufExplSplitBelow=1
-
-"let g:bufExplorerSortBy = "name"
-
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
-
-"TODO: I disabled this because it was annoying
-"autocmd BufRead,BufNew :call UMiniBufExplorer
-
-map <leader>u :TMiniBufExplorer<cr>:TMiniBufExplorer<cr>
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Omni complete functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType c set omnifunc=ccomplete#Complete
-"autocmd Filetype
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -435,19 +306,10 @@ au FileType python syn keyword pythonDecorator True None False self
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
 
-au FileType python inoremap <buffer> $r return
-au FileType python inoremap <buffer> $i import
-au FileType python inoremap <buffer> $p print
-au FileType python inoremap <buffer> $f #--- PH ----------------------------------------------<esc>FP2xi
-au FileType python map <buffer> <leader>1 /class
-au FileType python map <buffer> <leader>2 /def
-au FileType python map <buffer> <leader>C ?class
-au FileType python map <buffer> <leader>D ?def
 au FileType python set smartindent
 au FileType python set tabstop=4
 au FileType python set shiftwidth=4
 au FileType python set expandtab
-
 
 
 """"""""""""""""""""""""""""""
@@ -459,9 +321,6 @@ au FileType javascript setl nocindent
 
 au FileType javascript imap <c-t> AJS.log();<esc>hi
 au FileType javascript imap <c-a> alert();<esc>hi
-
-au FileType javascript inoremap <buffer> $r return
-au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
 
 function! JavaScriptFold()
     setl foldmethod=syntax
@@ -476,19 +335,9 @@ endfunction
 
 
 """"""""""""""""""""""""""""""
-" => Fuzzy finder
-""""""""""""""""""""""""""""""
-"try
-"    call fuf#defineLaunchCommand('FufCWD', 'file', 'fnamemodify(getcwd(), ''%:p:h'')')
-"    map <leader>t :FufCWD **/<CR>
-"catch
-"endtry
-
-
-""""""""""""""""""""""""""""""
 " => Vim grep
 """"""""""""""""""""""""""""""
-let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
+let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated .git'
 set grepprg=/bin/grep\ -nH
 
 
@@ -505,7 +354,7 @@ set number
 
 let Tlist_Ctags_Cmd = "ctags"
 let Tlist_WinWidth = 50
-"map <F4> :TlistToggle<cr>
+
 map <F4> :TagbarToggle<cr>
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
@@ -513,25 +362,6 @@ au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 
 set completeopt=menuone,longest,preview
-
-"imap <silent> <expr> <buffer> <CR> pumvisible() ? "<CR><C-R>=(col('.')-1&&match(getline(line('.')), '\\.',
-"      \ col('.')-2) == col('.')-2)?\"\<lt>C-X>\<lt>C-O>\":\"\"<CR>"
-"      \ : "<CR>"
-
-"map <leader>cmd :ConqueTermSplit cmd<CR>
-"map <leader>bash :ConqueTermSplit C:\Cygwin\Cygwin.bat<CR>
-"map <leader>zsh :ConqueTermSplit C:\cygwin\bin\zsh.exe<CR>
-map <leader>csh :ConqueTermSplit csh<CR>
-map <leader>zsh :ConqueTermSplit zsh<CR>
-
-"au GUIEnter * simalt ~x
-"x on an English Windows version. n on a French one
-"set ff=unix
-
-"map <leader>P :cd C:\sync_workspaces\trasmuss\PDE_Automation\Python<CR>
-"map <leader>a :cd C:\Users\trasmuss\repositories\python_automation_gui\gui<CR>:args *.py<CR>
-"map <leader>a :cd C:\Users\trasmuss\python_test<CR>:args *.py<CR>
-"set autochdir
 
 "added this shell enhancement script
 "http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
@@ -566,7 +396,11 @@ set showtabline=0
 "showmarks
 let g:showmarks_enable=0
 
-map <leader>. :set lines=77 columns=274<CR>
+""""""""""""""""""""""""""""""
+" => Statusline
+""""""""""""""""""""""""""""""
+" Always hide the statusline
+set laststatus=2
 
 "statusline setup
 set statusline=%f "tail of the filename
@@ -737,8 +571,6 @@ function! s:Median(nums)
         return (nums[l/2] + nums[(l/2)-1]) / 2
     endif
 endfunction
-
-"REMEMBER THE ':!COLUMN -t' COMMAND!!!!"
 
 "whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
