@@ -73,9 +73,6 @@
 [submodule "bundle/haskellmode-vim"]
 	path = bundle/haskellmode-vim
 	url = http://github.com/lukerandall/haskellmode-vim.git
-[submodule "bundle/jpythonfold"]
-	path = bundle/jpythonfold
-	url = http://github.com/vim-scripts/jpythonfold.vim.git
 [submodule "bundle/lusty"]
 	path = bundle/lusty
 	url = http://github.com/sjbach/lusty.git
@@ -109,9 +106,6 @@
 [submodule "bundle/repeat.vim"]
 	path = bundle/repeat.vim
 	url = http://github.com/vim-scripts/repeat.vim.git
-[submodule "bundle/python-syntax"]
-	path = bundle/python-syntax
-	url = http://github.com/vim-scripts/Python-Syntax.git
 [submodule "bundle/vim-lattice"]
 	path = bundle/vim-lattice
 	url = git@pdeubu:vim-lattice.git
