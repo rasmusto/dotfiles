@@ -246,11 +246,18 @@ endtry
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Do :help cope if you are unsure what cope is. It's super useful!
 map <leader>co :botright cope<cr>
+map <leader>lo :botright cope<cr>
+
 map <leader>n :cn<cr>
 map <M-n> :cn<cr>
+map <esc>n :cn<cr>
 
 map <leader>p :cp<cr>
 map <M-p> :cp<cr>
+map <esc>p :cp<cr>
+
+set timeout
+set timeoutlen=300
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -517,3 +524,11 @@ set shellslash
 set shellxquote=
 set shellpipe=2>&1\|tee
 set shellredir=>%s\ 2>&1
+
+"formatoptions
+"set fo=want
+set fo=qanc2
+set textwidth=79
+set cc=80
+
+"autocmd QuickFixCmdPost * :copen
