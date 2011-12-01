@@ -118,3 +118,6 @@
 [submodule "bundle/python-syntax-folding"]
 	path = bundle/python-syntax-folding
 	url = http://github.com/vim-scripts/Python-Syntax-Folding.git
+[submodule "bundle/tabular"]
+    path = bundle/tabular
+    url = http://github.com/godlygeek/tabular.git
