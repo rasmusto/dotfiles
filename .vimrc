@@ -247,8 +247,8 @@ endtry
 " => Cope
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Do :help cope if you are unsure what cope is. It's super useful!
-map <leader>co :botright cope<cr>
-map <leader>lo :botright cope<cr>
+map <leader>co :botright copen<cr>
+map <leader>lo :botright lopen<cr>
 
 map <leader>n :cn<cr>
 map <M-n> :cn<cr>
@@ -578,3 +578,14 @@ if !exists(":DiffOrig")
     command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
                 \ | wincmd p | diffthis
 endif
+
+map <C-t> :TagbarToggle<CR>
+
+" Command/search edit window
+map : q:i
+map / q/i
+au CmdwinEnter * nnoremap <buffer> <ESC> :q<cr>
+au CmdwinEnter * nnoremap <buffer> <C-[> :q<cr>
+
+" Change case
+set tildeop

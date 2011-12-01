@@ -115,3 +115,6 @@
 [submodule "bundle/pylint.vim"]
 	path = bundle/pylint.vim
 	url = http://github.com/vim-scripts/pylint.vim.git
+[submodule "bundle/python-syntax-folding"]
+	path = bundle/python-syntax-folding
+	url = http://github.com/vim-scripts/Python-Syntax-Folding.git
