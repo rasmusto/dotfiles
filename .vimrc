@@ -1,3 +1,8 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+
+"pathogen setup
+call pathogen#infect()
+
 "let $TMP="c:/tmp"
 "set directory^=$HOME/tmp
 "set directory+=,~/tmp,$TMP
@@ -32,9 +37,6 @@ map <leader>e :e! ~/.vimrc<cr>
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost *.snippets call ReloadAllSnippets()
 
-"pathogen setup
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
 
 set autochdir
 
