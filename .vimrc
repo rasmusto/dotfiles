@@ -142,7 +142,7 @@ set lbr
 set tw=500
 
 set autoindent
-set smartindent
+"set smartindent
 set nowrap "Don't wrap lines
 
 """"""""""""""""""""""""""""""
@@ -287,7 +287,7 @@ map <leader>s? z=
 """"""""""""""""""""""""""""""
 " => Python section
 """"""""""""""""""""""""""""""
-au FileType python set nocindent
+"au FileType python set nocindent
 let python_highlight_all = 1
 
 au FileType python set smartindent
@@ -326,6 +326,11 @@ map <F4> :TagbarToggle<cr>
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 au FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python compiler pylint
+let g:pylint_cwindow = 0
+let g:pylint_onwrite = 0
+"let g:pylint_onfly = 0
+
 let g:SuperTabDefaultCompletionType = "context"
 
 
@@ -639,3 +644,17 @@ endfunction
 
 command! ToggleMinimap call ToggleMinimap()
 nnoremap m :ToggleMinimap<CR>
+
+" disable perl syntax checking, it's recursive and takes too long
+let g:syntastic_disabled_filetypes = ['perl']
+
+set modeline
+
+" show length of visual mode selection
+set sc
+
+" git
+au FileType gitcommit set tw=72
+au FileType gitcommit set cc=72
+au FileType gitrebase set tw=72
+au FileType gitrebase set cc=72
