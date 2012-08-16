@@ -49,9 +49,6 @@
 [submodule "bundle/csv"]
 	path = bundle/csv
 	url = http://github.com/vim-scripts/csv.vim.git
-[submodule "bundle/vim-latex"]
-	path = bundle/vim-latex
-	url = http://github.com/jcf/vim-latex.git
 [submodule "bundle/textile"]
 	path = bundle/textile
 	url = http://github.com/timcharper/textile.vim.git
@@ -103,12 +100,6 @@
 [submodule "bundle/repeat.vim"]
 	path = bundle/repeat.vim
 	url = http://github.com/vim-scripts/repeat.vim.git
-[submodule "bundle/vim-pep8"]
-	path = bundle/vim-pep8
-	url = http://github.com/nvie/vim-pep8.git
-[submodule "bundle/pylint.vim"]
-	path = bundle/pylint.vim
-	url = http://github.com/vim-scripts/pylint.vim.git
 [submodule "bundle/python-syntax-folding"]
 	path = bundle/python-syntax-folding
 	url = http://github.com/vim-scripts/Python-Syntax-Folding.git
@@ -133,3 +124,9 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-flake8"]
+	path = bundle/vim-flake8
+	url = git://github.com/nvie/vim-flake8.git
+[submodule "bundle/vim-powerline"]
+	path = bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
