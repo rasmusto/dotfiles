@@ -38,7 +38,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost *.snippets call ReloadAllSnippets()
 
 
-set autochdir
+"set autochdir
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -350,6 +350,7 @@ let g:tagbar_left = 1
 
 "showmarks
 let g:showmarks_enable=0
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 "for vimshell/vimrun.exe
 set shellquote=
@@ -424,7 +425,16 @@ set tildeop
 set wildignorecase
 
 " disable perl syntax checking, it's recursive and takes too long
-let g:syntastic_disabled_filetypes = ['perl']
+let g:syntastic_disabled_filetypes = ['perl', 'python']
+
+" python syntax checking weirdness
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_echo_current_error = 0
+let g:syntastic_python_checker='flake8'
+let g:syntastic_python_checker_args='--ignore=E501'
+let g:syntastic_enable_signs=0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],
+                           \ 'passive_filetypes': ['python', 'perl'] }
 
 set modeline
 
@@ -449,6 +459,18 @@ au BufRead,BufNewFile *.cshrc set filetype=csh
 let g:yankring_history_file = '.yankring_history'
 
 let g:Powerline_symbols = 'fancy'
+set fillchars+=stl:\ ,stlnc:\ 
 "let g:Powerline_theme = 'default'
+let g:Powerline_theme = 'default'
 let g:Powerline_colorscheme = 'skwp'
 "let g:Powerline_stl_path_style = 'full'
+set noshowmode
+set noshowcmd
+"PowerlineReloadColorscheme
+
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_open_multiple_files = '1hjr'
+let g:ctrlp_max_height = 40
+let g:ctrlp_custom_ignore = '\.pyc$'
+
+let g:tagbar_compact = 1
