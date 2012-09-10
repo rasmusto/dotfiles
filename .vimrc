@@ -117,7 +117,7 @@ try
 catch
 endtry
 
-set ffs=unix,dos,mac "Default file types
+"set ffs=unix,dos,mac "Default file types
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -211,8 +211,10 @@ map <leader>dd :Bclose<cr>
 map <leader>cd :cd %:p:h<cr>
 
 " Buffer changing
-map <S-l> :bn<cr>
-map <S-h> :bp<cr>
+"map <S-l> :bn<cr>
+"map <S-h> :bp<cr>
+map <esc>l :bn<cr>
+map <esc>h :bp<cr>
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
@@ -474,3 +476,11 @@ let g:ctrlp_max_height = 40
 let g:ctrlp_custom_ignore = '\.pyc$'
 
 let g:tagbar_compact = 1
+
+" persistent undo
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+nnoremap <F5> :GundoToggle<CR>

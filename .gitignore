@@ -2,3 +2,4 @@ _zshrc.local
 .netrwhist
 snippets/*
 bundle/*
+undodir
