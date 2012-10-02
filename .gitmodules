@@ -127,3 +127,12 @@
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = git://github.com/tpope/vim-commentary.git
+[submodule "bundle/vimclojure"]
+	path = bundle/vimclojure
+	url = git://github.com/vim-scripts/VimClojure.git
+[submodule "bundle/jellybeans.vim"]
+	path = bundle/jellybeans.vim
+	url = git://github.com/nanotech/jellybeans.vim.git
+[submodule "bundle/vim-git"]
+    path = bundle/vim-git
+	url = http://github.com/tpope/vim-git.git

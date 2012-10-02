@@ -26,12 +26,14 @@ set autoread
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
+let maplocalleader = ","
+let g:maplocalleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
 
 " Fast editing of the .vimrc
-map <leader>e :e! ~/.vimrc<cr>
+"map <leader>e :e! ~/.vimrc<cr>
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc
@@ -78,7 +80,7 @@ set scrollopt+=hor
 set scrollopt+=ver
 set scrollopt+=jump
 
-map 0 ^
+"map 0 ^
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -254,11 +256,9 @@ endtry
 map <leader>co :botright copen<cr>
 map <leader>lo :botright lopen<cr>
 
-map <leader>n :cn<cr>
 map <M-n> :cn<cr>
 map <esc>n :cn<cr>
 
-map <leader>p :cp<cr>
 map <M-p> :cp<cr>
 map <esc>p :cp<cr>
 
@@ -484,3 +484,11 @@ set undolevels=1000
 set undoreload=10000
 
 nnoremap <F5> :GundoToggle<CR>
+
+let vimclojure#WantNailgun = 1
+" let vimclojure#SplitSize = 10
+let vimclojure#SplitPos = "left"
+let g:vimclojure#ParenRainbow = 1
+
+let g:insertlessly_cleanup_trailing_ws = 0
+let g:insertlessly_cleanup_all_ws = 0
