@@ -40,9 +40,6 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost *.snippets call ReloadAllSnippets()
 
 
-"set autochdir
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
