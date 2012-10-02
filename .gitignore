@@ -1,5 +1,5 @@
 _zshrc.local
 .netrwhist
 snippets/*
-bundle/*
+bundle/*/doc/tags
 undodir
