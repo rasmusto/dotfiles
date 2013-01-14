@@ -33,7 +33,7 @@ let g:maplocalleader = ","
 nmap <leader>w :w!<cr>
 
 " Fast editing of the .vimrc
-"map <leader>e :e! ~/.vimrc<cr>
+" map <leader>e :e! ~/.vimrc<cr>
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc
@@ -77,8 +77,6 @@ set scrollopt+=hor
 set scrollopt+=ver
 set scrollopt+=jump
 
-"map 0 ^
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -96,6 +94,8 @@ elseif has('unix')
     set shell=/bin/bash
 endif
 
+" TODO
+let g:solarized_italic=0
 
 if has('gui_running')
     "Fullscreen
@@ -110,13 +110,16 @@ else
     colorscheme solarized
 endif
 
+" TODO
+let g:solarized_italic=0
+
 set encoding=utf8
 try
     lang en_US
 catch
 endtry
 
-"set ffs=unix,dos,mac "Default file types
+set ffs=unix,dos,mac "Default file types
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -210,8 +213,6 @@ map <leader>dd :Bclose<cr>
 map <leader>cd :cd %:p:h<cr>
 
 " Buffer changing
-"map <S-l> :bn<cr>
-"map <S-h> :bp<cr>
 map <esc>l :bn<cr>
 map <esc>h :bp<cr>
 
@@ -489,3 +490,6 @@ let g:vimclojure#ParenRainbow = 1
 
 let g:insertlessly_cleanup_trailing_ws = 0
 let g:insertlessly_cleanup_all_ws = 0
+
+" clojure
+autocmd BufWrite *.clj :call DeleteTrailingWS()

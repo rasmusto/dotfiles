@@ -100,9 +100,6 @@
 [submodule "bundle/ctrlp.vim"]
 	path = bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
-[submodule "bundle/VimClojure"]
-	path = bundle/VimClojure
-	url = git://github.com/vim-scripts/VimClojure.git
 [submodule "bundle/vim-pathogen"]
 	path = bundle/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
@@ -124,12 +121,15 @@
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = git://github.com/tpope/vim-commentary.git
-[submodule "bundle/vimclojure"]
-	path = bundle/vimclojure
-	url = git://github.com/vim-scripts/VimClojure.git
-[submodule "bundle/jellybeans.vim"]
-	path = bundle/jellybeans.vim
-	url = git://github.com/nanotech/jellybeans.vim.git
 [submodule "bundle/vim-git"]
     path = bundle/vim-git
 	url = http://github.com/tpope/vim-git.git
+[submodule "bundle/vim-clojure-static"]
+	path = bundle/vim-clojure-static
+	url = git://github.com/guns/vim-clojure-static.git
+[submodule "bundle/vim-foreplay"]
+	path = bundle/vim-foreplay
+	url = git://github.com/tpope/vim-foreplay.git
+[submodule "bundle/paredit.vim"]
+	path = bundle/paredit.vim
+	url = git://github.com/vim-scripts/paredit.vim.git
