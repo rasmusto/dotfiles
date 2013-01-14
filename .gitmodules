@@ -16,9 +16,6 @@
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = http://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/vim-conque"]
-	path = bundle/vim-conque
-	url = http://github.com/rson/vim-conque.git
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = http://github.com/tpope/vim-fugitive.git
@@ -28,51 +25,27 @@
 [submodule "bundle/YankRing"]
 	path = bundle/YankRing
 	url = http://github.com/vim-scripts/YankRing.vim.git
-[submodule "bundle/pydoc"]
-	path = bundle/pydoc
-	url = http://github.com/fs111/pydoc.vim.git
-[submodule "bundle/perlomni"]
-	path = bundle/perlomni
-	url = http://github.com/c9s/perlomni.vim.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = http://github.com/scrooloose/syntastic.git
 [submodule "bundle/marvim"]
 	path = bundle/marvim
 	url = http://github.com/vim-scripts/marvim.git
-[submodule "bundle/csv"]
-	path = bundle/csv
-	url = http://github.com/vim-scripts/csv.vim.git
-[submodule "bundle/textile"]
-	path = bundle/textile
-	url = http://github.com/timcharper/textile.vim.git
 [submodule "bundle/perl-mauke"]
 	path = bundle/perl-mauke
 	url = http://github.com/vim-scripts/perl-mauke.vim.git
 [submodule "bundle/gitv"]
 	path = bundle/gitv
 	url = http://github.com/gregsexton/gitv.git
-[submodule "bundle/vim-scala"]
-	path = bundle/vim-scala
-	url = http://github.com/bmatheny/vim-scala.git
 [submodule "bundle/Vim-R-plugin"]
 	path = bundle/Vim-R-plugin
 	url = http://github.com/vim-scripts/Vim-R-plugin.git
 [submodule "bundle/haskellmode-vim"]
 	path = bundle/haskellmode-vim
 	url = http://github.com/lukerandall/haskellmode-vim.git
-[submodule "bundle/lusty"]
-	path = bundle/lusty
-	url = http://github.com/sjbach/lusty.git
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = http://github.com/majutsushi/tagbar.git
-[submodule "bundle/ack.vim"]
-	path = bundle/ack.vim
-	url = http://github.com/mileszs/ack.vim.git
-[submodule "bundle/vim-slime"]
-	path = bundle/vim-slime
-	url = http://github.com/jpalardy/vim-slime.git
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim
 	url = http://github.com/sjl/gundo.vim.git
@@ -106,9 +79,6 @@
 [submodule "bundle/vim-extradite"]
 	path = bundle/vim-extradite
 	url = git://github.com/int3/vim-extradite.git
-[submodule "bundle/autocomplpop"]
-	path = bundle/autocomplpop
-	url = git://github.com/vim-scripts/AutoComplPop.git
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
