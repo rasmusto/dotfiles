@@ -1,5 +1,0 @@
-The setup.sh script will link all of the files in my repo to your home directory, but will fail if you have any files/directories of the same name.
-
-The setup.bat script will set everything up on windows using mklink (assuming C:\ is where your home directory is)
-
-This repository should be named /home/<user>/.vim on linux, or C:\Users\<user>\vimfiles on Windows.
