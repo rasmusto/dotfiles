@@ -1,18 +1,8 @@
+" pathogen setup {{{1
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-
-"pathogen setup
 call pathogen#infect()
 
-"let $TMP="c:/tmp"
-"set directory^=$HOME/tmp
-"set directory+=,~/tmp,$TMP
-" Suppress warnings about not having ruby (on win)
-let g:LustyExplorerSuppressRubyWarning = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
+" General {{{1
 set history=300
 
 " Enable filetype plugin
@@ -22,47 +12,34 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
 let maplocalleader = ","
 let g:maplocalleader = ","
 
-" Fast saving
-nmap <leader>w :w!<cr>
-
-" Fast editing of the .vimrc
-" map <leader>e :e! ~/.vimrc<cr>
+" change timeout for sending esc/meta through terminal
+set timeout
+set timeoutlen=300
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost *.snippets call ReloadAllSnippets()
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set 7 lines to the curors - when moving vertical..
-set so=7
-set wildmenu "Turn on WiLd menu
-set ruler "Always show current position
-set cmdheight=1 "The commandbar height
-set hid "Change buffer - without saving
+" VIM user interface {{{1
+set scrolloff=7
+set wildmenu
+set hidden
 
 " Mouse control in terminal
 set mouse=a
 set ttymouse=xterm2
 
-" Set backspace config
-set backspace=eol,start,indent
-"set whichwrap+=<,>,h,l
-set whichwrap+=<,>
+set backspace=start
 
-set smartcase ignorecase "Ignore case when searching
-set hlsearch "Highlight search things
-set incsearch "Make search act like search in modern browsers
-set magic "Set magic on, for regular expressions
+set smartcase ignorecase
+set hlsearch
+set incsearch
+set magic
 
 set showmatch
 set matchtime=2
@@ -77,24 +54,25 @@ set scrollopt+=hor
 set scrollopt+=ver
 set scrollopt+=jump
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set number
+
+" set listchars=tab:
+
+" Colors and Fonts {{{1
 syntax enable
 
 " Set font according to system
 if has('mac')
     set gfn=Bitstream\ Vera\ Sans\ Mono:h12
-    set shell=/bin/bash
+    " set shell=/bin/bash
 elseif has('win32')
     set shellcmdflag=/c
     set guifont=DejaVu_Sans_Mono:h12:cANSI
 elseif has('unix')
     set guifont=GohuFont
-    set shell=/bin/bash
+    " set shell=/bin/bash
 endif
 
-" TODO
 let g:solarized_italic=0
 
 if has('gui_running')
@@ -105,13 +83,9 @@ if has('gui_running')
     colorscheme solarized
 else
     set t_Co=256
-    "let g:solarized_termcolors=256
     set background=dark
     colorscheme solarized
 endif
-
-" TODO
-let g:solarized_italic=0
 
 set encoding=utf8
 try
@@ -119,46 +93,29 @@ try
 catch
 endtry
 
-set ffs=unix,dos,mac "Default file types
+set fileformats=unix,dos,mac
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files and backups
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git anyway...
+" Files and backups {{{1
 set nobackup
 set nowritebackup
-set nowb
 set noswapfile
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Text, tab and indent related {{{1
 set expandtab
 set shiftwidth=4
 set tabstop=4
 set smarttab
 
-set lbr
-set tw=500
+set linebreak
+set textwidth=500
 
 set autoindent
-"set smartindent
-set nowrap "Don't wrap lines
+set nowrap
 
-""""""""""""""""""""""""""""""
-" => Visual mode related
-""""""""""""""""""""""""""""""
-" Really useful!
-"  In visual mode when you press * or # to search for the current selection
-vnoremap <silent> * :call VisualSearch('f')<CR>
-vnoremap <silent> # :call VisualSearch('b')<CR>
+" Visual mode related{{{1
 
-" When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSearch('gv')<CR>
-map <leader>vg :vimgrep  ./*<left><left><left><left>
-
+" show length of visual mode selection
+set showcmd
 
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
@@ -186,20 +143,17 @@ function! VisualSearch(direction) range
     let @" = l:saved_reg
 endfunction
 
+" Mappings {{{1
+" In visual mode when you press * or # to search for the current selection
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
+vnoremap <silent> gv :call VisualSearch('gv')<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Command mode related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Command mode related
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs and buffers
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-map <silent> <leader><cr> :noh<cr>
-
+" Moving around, tabs and buffers
 " Window movement
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -216,8 +170,8 @@ map <leader>cd :cd %:p:h<cr>
 map <esc>l :bn<cr>
 map <esc>h :bp<cr>
 
-" When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>
+nmap <leader>l :set list!<CR>
+map <silent> <leader><cr> :noh<cr>
 
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
@@ -247,10 +201,7 @@ catch
 endtry
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Cope
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Do :help cope if you are unsure what cope is. It's super useful!
+" Quickfix/location list {{{1
 map <leader>co :botright copen<cr>
 map <leader>lo :botright lopen<cr>
 
@@ -260,34 +211,12 @@ map <esc>n :cn<cr>
 map <M-p> :cp<cr>
 map <esc>p :cp<cr>
 
-set timeout
-set timeoutlen=300
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Omni complete functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType c set omnifunc=ccomplete#Complete
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Spell checking
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Pressing ,ss will toggle and untoggle spell checking
+" Spell checking {{{1
 map <leader>ss :setlocal spell!<cr>
 
-"Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
-
-
-""""""""""""""""""""""""""""""
-" => Python section
-""""""""""""""""""""""""""""""
-"au FileType python set nocindent
+" Language-specific settings {{{1
+" Python {{{2
 let python_highlight_all = 1
 
 au FileType python set smartindent
@@ -295,81 +224,89 @@ au FileType python set tabstop=4
 au FileType python set shiftwidth=4
 au FileType python set expandtab
 
-"Delete trailing white space
+" whitespace {{{2
 func! DeleteTrailingWS()
     exe "normal mz"
     %s/\s\+$//ge
     exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
 
-"whitespace
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.r :call DeleteTrailingWS()
+autocmd BufWrite *.clj :call DeleteTrailingWS()
+
 highlight ExtraWhitespace ctermbg=0 guibg=#073642
 match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
+" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" autocmd BufWinLeave * call clearmatches()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => MISC
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Omni complete functions {{{2
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+" MISC {{{1
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <leader>mmm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
-"Quickly open a buffer for scripbble
-map <leader>q :e ~/buffer<cr>
+" Statusline {{{1
+set laststatus=2
 
-set number
+" Plugin-specific mappings {{{1
+
+" Tagbar {{{2
+let g:tagbar_left = 1
+let g:tagbar_compact = 1
+
 map <F4> :TagbarToggle<cr>
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
-au FileType python set omnifunc=pythoncomplete#Complete
+" R lang {{{2
+let vimrplugin_screenplugin = 0
+let vimrplugin_underscore = 0
 
-let g:SuperTabDefaultCompletionType = "context"
+" Yankring {{{2
+let g:yankring_history_file = '.yankring_history'
+let g:Powerline_symbols = 'fancy'
+set fillchars+=stl:\ ,stlnc:\ 
+let g:Powerline_theme = 'default'
+let g:Powerline_colorscheme = 'skwp'
 
+" Ctrlp {{{2
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_open_multiple_files = '1hjr'
+let g:ctrlp_max_height = 40
+let g:ctrlp_custom_ignore = '\.pyc$'
+let g:ctrlp_working_path_mode = 'r'
 
-""""""""""""""""""""""""""""""
-" => Statusline
-""""""""""""""""""""""""""""""
-" Always hide the statusline
-set laststatus=2
+" Syntastic {{{2
+" disable perl syntax checking, it's recursive and takes too long
+let g:syntastic_disabled_filetypes = ['perl', 'python']
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugin-specific mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" python syntax checking weirdness
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_echo_current_error = 0
+let g:syntastic_python_checker='flake8'
+let g:syntastic_python_checker_args='--ignore=E501'
+let g:syntastic_enable_signs=0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],
+                           \ 'passive_filetypes': ['python', 'perl'] }
 
-nmap <silent> <leader>j :LustyJuggler<CR>
-nmap <silent> <leader>f :LustyFilesystemExplorer<CR>
-nmap <silent> <leader>r :LustyFilesystemExplorerFromHere<CR>
-nmap <silent> <leader>b :LustyBufferExplorer<CR>
-nmap <silent> <leader>g :LustyBufferGrep<CR>
+" paredit {{{2
+let g:paredit_mode=0
+" autocmd FilterWritePre * if (&diff) | let g:paredit_mode=0 | endif
+" autocmd BufWinLeave * if (&diff) | let g:paredit_mode=1 | endif
 
-let g:tagbar_left = 1
-
-"showmarks
-let g:showmarks_enable=0
-let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-"for vimshell/vimrun.exe
-set shellquote=
-set shellslash
-set shellxquote=
-set shellpipe=2>&1\|tee
-set shellredir=>%s\ 2>&1
-
-"formatoptions
-"set fo=qwant2
-set fo=qwnt2
-"set fo=qant2
+" formatoptions {{{1
+set formatoptions=qwnt2
 
 set textwidth=79
 set cc=80
 
-"autocmd QuickFixCmdPost * :copen
-
-" From sample vimrc (thanks bram)
+" From sample vimrc (thanks bram) {{{1
 if has("autocmd")
 
     " Enable file type detection.
@@ -398,10 +335,8 @@ if has("autocmd")
     augroup END
 
 else
-
-    set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
+    set autoindent
+endif
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -411,69 +346,21 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
-map <C-t> :TagbarToggle<CR>
-
-" Command/search edit window
-"map : q:i
-"map / q/i
+" Command/search edit window {{{1
 au CmdwinEnter * nnoremap <buffer> <ESC> :q<cr>
 au CmdwinEnter * nnoremap <buffer> <C-[> :q<cr>
 
-" Change case
+" Change case {{{1
 set tildeop
 
-set wildignorecase
+if has('unix')
+    set wildignorecase
+elseif has('mac')
+    set wildignorecase
+endif
 
-" disable perl syntax checking, it's recursive and takes too long
-let g:syntastic_disabled_filetypes = ['perl', 'python']
-
-" python syntax checking weirdness
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_echo_current_error = 0
-let g:syntastic_python_checker='flake8'
-let g:syntastic_python_checker_args='--ignore=E501'
-let g:syntastic_enable_signs=0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],
-                           \ 'passive_filetypes': ['python', 'perl'] }
-
-set modeline
-
-" show length of visual mode selection
-set sc
-
-" git
-au FileType gitcommit set tw=72
-au FileType gitcommit set cc=72
-au FileType gitrebase set tw=72
-au FileType gitrebase set cc=72
-
-"R lang
-let vimrplugin_screenplugin = 0
-
-autocmd BufWrite *.r :call DeleteTrailingWS()
-
-let vimrplugin_underscore = 0
 
 au BufRead,BufNewFile *.cshrc set filetype=csh
-
-let g:yankring_history_file = '.yankring_history'
-
-let g:Powerline_symbols = 'fancy'
-set fillchars+=stl:\ ,stlnc:\ 
-"let g:Powerline_theme = 'default'
-let g:Powerline_theme = 'default'
-let g:Powerline_colorscheme = 'skwp'
-"let g:Powerline_stl_path_style = 'full'
-set noshowmode
-set noshowcmd
-"PowerlineReloadColorscheme
-
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_open_multiple_files = '1hjr'
-let g:ctrlp_max_height = 40
-let g:ctrlp_custom_ignore = '\.pyc$'
-
-let g:tagbar_compact = 1
 
 " persistent undo
 set undodir=~/.vim/undodir
@@ -483,13 +370,4 @@ set undoreload=10000
 
 nnoremap <F5> :GundoToggle<CR>
 
-let vimclojure#WantNailgun = 1
-" let vimclojure#SplitSize = 10
-let vimclojure#SplitPos = "left"
-let g:vimclojure#ParenRainbow = 1
 
-let g:insertlessly_cleanup_trailing_ws = 0
-let g:insertlessly_cleanup_all_ws = 0
-
-" clojure
-autocmd BufWrite *.clj :call DeleteTrailingWS()

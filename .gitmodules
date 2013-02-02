@@ -7,12 +7,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = http://github.com/msanders/snipmate.vim.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = http://github.com/ervandew/supertab.git
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = http://github.com/altercation/vim-colors-solarized.git
@@ -49,15 +43,6 @@
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim
 	url = http://github.com/sjl/gundo.vim.git
-[submodule "bundle/cscope_macros.vim"]
-	path = bundle/cscope_macros.vim
-	url = http://github.com/vim-scripts/cscope_macros.vim.git
-[submodule "bundle/colorizer"]
-	path = bundle/colorizer
-	url = http://github.com/lilydjwg/colorizer.git
-[submodule "snippets"]
-	path = snippets
-	url = http://github.com/scrooloose/snipmate-snippets.git
 [submodule "bundle/surround.vim"]
 	path = bundle/surround.vim
 	url = http://github.com/vim-scripts/surround.vim.git
@@ -85,9 +70,6 @@
 [submodule "bundle/vim-flake8"]
 	path = bundle/vim-flake8
 	url = git://github.com/nvie/vim-flake8.git
-[submodule "bundle/vim-powerline"]
-	path = bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = git://github.com/tpope/vim-commentary.git
