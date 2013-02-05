@@ -34,7 +34,7 @@ set hidden
 set mouse=a
 set ttymouse=xterm2
 
-set backspace=start
+set backspace=start,indent
 
 set smartcase ignorecase
 set hlsearch
@@ -279,7 +279,10 @@ let g:Powerline_colorscheme = 'skwp'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_open_multiple_files = '1hjr'
 let g:ctrlp_max_height = 40
-let g:ctrlp_custom_ignore = '\.pyc$'
+let g:ctrlp_custom_ignore = {
+            \ 'dir':
+            \ '\v[\/](vnc_logs|target|.git|.hg|.svn)$',
+            \ }
 let g:ctrlp_working_path_mode = 'r'
 
 " Syntastic {{{2

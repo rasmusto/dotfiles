@@ -1,6 +1,8 @@
 function! ClojureFolds()
     let thisline = getline(v:lnum)
-    if match(thisline, '^(defn') >= 0
+    if thisline =~ '^(defn'
+        return ">1"
+    elseif thisline =~ '^(comment'
         return ">1"
     else
         return "="
