@@ -1,6 +1,3 @@
-[submodule "bundle/SearchComplete"]
-	path = bundle/SearchComplete
-	url = http://github.com/vim-scripts/SearchComplete.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = http://github.com/scrooloose/nerdcommenter.git
