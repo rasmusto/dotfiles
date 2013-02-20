@@ -299,9 +299,7 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],
                            \ 'passive_filetypes': ['python', 'perl'] }
 
 " paredit {{{2
-let g:paredit_mode=0
-" autocmd FilterWritePre * if (&diff) | let g:paredit_mode=0 | endif
-" autocmd BufWinLeave * if (&diff) | let g:paredit_mode=1 | endif
+command! Ptoggle call PareditToggle()
 
 " formatoptions {{{1
 set formatoptions=qwnt2
@@ -372,5 +370,3 @@ set undolevels=1000
 set undoreload=10000
 
 nnoremap <F5> :GundoToggle<CR>
-
-
