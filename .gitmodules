@@ -76,9 +76,6 @@
 [submodule "bundle/vim-clojure-static"]
 	path = bundle/vim-clojure-static
 	url = git://github.com/guns/vim-clojure-static.git
-[submodule "bundle/vim-foreplay"]
-	path = bundle/vim-foreplay
-	url = git://github.com/tpope/vim-foreplay.git
 [submodule "bundle/paredit.vim"]
 	path = bundle/paredit.vim
 	url = git://github.com/vim-scripts/paredit.vim.git
@@ -88,3 +85,6 @@
 [submodule "bundle/vim-speeddating"]
 	path = bundle/vim-speeddating
 	url = git://github.com/tpope/vim-speeddating.git
+[submodule "bundle/vim-fireplace"]
+	path = bundle/vim-fireplace
+	url = git://github.com/tpope/vim-fireplace.git
