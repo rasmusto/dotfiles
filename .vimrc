@@ -103,7 +103,6 @@ set noswapfile
 " Text, tab and indent related {{{1
 set expandtab
 set shiftwidth=4
-set tabstop=4
 set smarttab
 
 set linebreak
@@ -305,7 +304,7 @@ command! Ptoggle call PareditToggle()
 set formatoptions=qwnt2
 
 set textwidth=79
-set cc=80
+set colorcolumn=+1
 
 " From sample vimrc (thanks bram) {{{1
 if has("autocmd")

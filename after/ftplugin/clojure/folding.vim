@@ -4,6 +4,8 @@ function! ClojureFolds()
         return ">1"
     elseif thisline =~ '^(comment'
         return ">1"
+    elseif thisline =~ '^(def'
+        return ">1"
     else
         return "="
     endif
