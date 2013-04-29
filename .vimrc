@@ -223,6 +223,11 @@ au FileType python set tabstop=4
 au FileType python set shiftwidth=4
 au FileType python set expandtab
 
+" BODOL
+" Keybindings for λ and ƒ
+inoremap <A-l> <C-v>u3bb<Space>
+inoremap <A-f> <C-v>u192<Space>
+
 " whitespace {{{2
 func! DeleteTrailingWS()
     exe "normal mz"
