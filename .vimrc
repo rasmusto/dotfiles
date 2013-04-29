@@ -18,8 +18,15 @@ let maplocalleader = ","
 let g:maplocalleader = ","
 
 " change timeout for sending esc/meta through terminal
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
 set timeout
-set timeoutlen=300
+set ttimeoutlen=50
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc
@@ -166,9 +173,8 @@ map <leader>dd :Bclose<cr>
 map <leader>cd :cd %:p:h<cr>
 
 " Buffer changing
-map <esc>l :bn<cr>
-map <esc>h :bp<cr>
-
+map <M-l> :bn<cr>
+map <M-h> :bp<cr>
 nmap <leader>l :set list!<CR>
 map <silent> <leader><cr> :noh<cr>
 
@@ -205,10 +211,7 @@ map <leader>co :botright copen<cr>
 map <leader>lo :botright lopen<cr>
 
 map <M-n> :cn<cr>
-map <esc>n :cn<cr>
-
 map <M-p> :cp<cr>
-map <esc>p :cp<cr>
 
 
 " Spell checking {{{1
