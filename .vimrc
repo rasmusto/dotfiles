@@ -39,6 +39,7 @@ set hidden
 
 " Mouse control in terminal
 set mouse=a
+set ttyfast
 set ttymouse=xterm2
 
 set backspace=start,indent
@@ -63,7 +64,7 @@ set scrollopt+=jump
 
 set number
 
-" set listchars=tab:
+set listchars=tab:»\ ,eol:¬
 
 " Colors and Fonts {{{1
 syntax enable
@@ -268,8 +269,9 @@ set laststatus=2
 let g:tagbar_left = 1
 let g:tagbar_compact = 1
 
+let g:tagbar_ctags_bin = '/usr/bin/ctags'
 map <F4> :TagbarToggle<cr>
-map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " R lang {{{2
 let vimrplugin_screenplugin = 0
@@ -306,13 +308,12 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],
                            \ 'passive_filetypes': ['python', 'perl'] }
 
 " paredit {{{2
+let g:paredit_shortmaps=1
 command! Ptoggle call PareditToggle()
 
 " formatoptions {{{1
 set formatoptions=qwnt2
 
-set textwidth=79
-set colorcolumn=+1
 
 " From sample vimrc (thanks bram) {{{1
 if has("autocmd")
@@ -360,13 +361,6 @@ au CmdwinEnter * nnoremap <buffer> <C-[> :q<cr>
 
 " Change case {{{1
 set tildeop
-
-if has('unix')
-    set wildignorecase
-elseif has('mac')
-    set wildignorecase
-endif
-
 
 au BufRead,BufNewFile *.cshrc set filetype=csh
 
