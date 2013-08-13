@@ -1,39 +1,15 @@
-bind 'q' quit
-#screen -t csh 0
-screen -t zsh 0 zsh
-#screen -t zsh 1 zsh
-#screen -t vim 2 vim
+shell -$SHELL
+
 altscreen on
 vbell off
 startup_message off
-#bind ',' prev
-#bind '.' next
 
-bind 'h' prev
-bind 'l' next
+escape ^|^|
 
-#change the hardstatus settings to give an window list at the bottom of the
-##screen, with the time and date and with the current window highlighted
+bind 'L' next
+bind 'H' prev
+
 hardstatus alwayslastline
-#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
 
-#termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-
-termcapinfo xterm* ti@:te@
-
-termcap xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
-terminfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
-
-terminfo xterm* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-#
-#termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-#termcapinfo xterm-color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-#termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-
-attrcolor b ".I"
-
-#term screen-256color
-defbce on
-
-term screen-256color-bce
+maptimeout 0
