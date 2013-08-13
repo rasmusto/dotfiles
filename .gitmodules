@@ -1,9 +1,6 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = http://github.com/scrooloose/nerdcommenter.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = http://github.com/scrooloose/nerdtree.git
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = http://github.com/altercation/vim-colors-solarized.git
@@ -76,9 +73,6 @@
 [submodule "bundle/vim-clojure-static"]
 	path = bundle/vim-clojure-static
 	url = git://github.com/guns/vim-clojure-static.git
-[submodule "bundle/paredit.vim"]
-	path = bundle/paredit.vim
-	url = git://github.com/vim-scripts/paredit.vim.git
 [submodule "bundle/vim-orgmode"]
 	path = bundle/vim-orgmode
 	url = git://github.com/jceb/vim-orgmode.git
