@@ -311,6 +311,19 @@ let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],
 let g:paredit_shortmaps=1
 command! Ptoggle call PareditToggle()
 
+" airline {{{2
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts=0
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_branch_prefix = ''
+let g:airline_paste_symbol = 'Þ'
+let g:airline_whitespace_symbol = 'W'
+
+let g:airline_detect_paste=1
+let g:airline_detect_whitespace=0 "disabled
+
 " formatoptions {{{1
 set formatoptions=qwnt2
 
