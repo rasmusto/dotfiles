@@ -37,6 +37,9 @@
 
 ; (load-theme 'soothe)
 (load-theme 'solarized-dark)
+(global-linum-mode t)
+(setq linum-format "%d\u2502")
+
 (show-paren-mode)
 
 ; (set-face-attribute 'default nil :font "DejaVu Sans Mono")
