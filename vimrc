@@ -32,6 +32,13 @@ set ttimeoutlen=50
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost *.snippets call ReloadAllSnippets()
 
+" profiling {{{1
+nnoremap <silent> <leader>DD :exe ":profile start profile.log"<cr>:exe ":profile func *"<cr>:exe ":profile file *"<cr>
+nnoremap <silent> <leader>DP :exe ":profile pause"<cr>
+nnoremap <silent> <leader>DC :exe ":profile continue"<cr>
+nnoremap <silent> <leader>DQ :exe ":profile pause"<cr>:noautocmd qall!<cr>
+" let loaded_matchparen = 1
+
 " VIM user interface {{{1
 set scrolloff=7
 set wildmenu
@@ -114,7 +121,7 @@ set shiftwidth=4
 set smarttab
 
 set linebreak
-set textwidth=500
+set textwidth=80
 
 set autoindent
 set nowrap
@@ -167,6 +174,9 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>s <C-w>s
+
 " Close the current buffer
 map <leader>dd :Bclose<cr>
 
@@ -215,9 +225,6 @@ map <M-n> :cn<cr>
 map <M-p> :cp<cr>
 
 
-" Spell checking {{{1
-map <leader>ss :setlocal spell!<cr>
-
 " Language-specific settings {{{1
 " Python {{{2
 let python_highlight_all = 1
@@ -227,10 +234,16 @@ au FileType python set tabstop=4
 au FileType python set shiftwidth=4
 au FileType python set expandtab
 
-" BODOL
+" BODOL {{{2
 " Keybindings for λ and ƒ
 inoremap <A-l> <C-v>u3bb<Space>
 inoremap <A-f> <C-v>u192<Space>
+
+" Clojure {{{2
+au FileType clojure silent! call TurnOnClojureFolding()
+
+let g:clojure_maxlines = 50
+let g:clojure_align_multiline_strings = 1
 
 " whitespace {{{2
 func! DeleteTrailingWS()
@@ -323,10 +336,12 @@ let g:airline_whitespace_symbol = 'W'
 
 let g:airline_detect_paste=1
 let g:airline_detect_whitespace=0 "disabled
+let g:airline_enable_tagbar=0
+
+let g:airline#extensions#tabline#enabled = 0
 
 " formatoptions {{{1
-set formatoptions=qwnt2
-
+set formatoptions=crqj2
 
 " From sample vimrc (thanks bram) {{{1
 if has("autocmd")
