@@ -40,9 +40,6 @@
 [submodule "vim/bundle/surround.vim"]
 	path = vim/bundle/surround.vim
 	url = http://github.com/vim-scripts/surround.vim.git
-[submodule "vim/bundle/repeat.vim"]
-	path = vim/bundle/repeat.vim
-	url = http://github.com/vim-scripts/repeat.vim.git
 [submodule "vim/bundle/python-syntax-folding"]
 	path = vim/bundle/python-syntax-folding
 	url = http://github.com/vim-scripts/Python-Syntax-Folding.git
@@ -88,3 +85,6 @@
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = git://github.com/bling/vim-airline.git
+[submodule "vim/bundle/vim-repeat"]
+	path = vim/bundle/vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
