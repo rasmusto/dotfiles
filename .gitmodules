@@ -1,51 +1,51 @@
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
-	url = http://github.com/scrooloose/nerdcommenter.git
+	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
-	url = http://github.com/altercation/vim-colors-solarized.git
+	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
-	url = http://github.com/tpope/vim-fugitive.git
+	url = git://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
-	url = http://github.com/tpope/vim-surround.git
+	url = git://github.com/tpope/vim-surround.git
 [submodule "vim/bundle/YankRing"]
 	path = vim/bundle/YankRing
-	url = http://github.com/vim-scripts/YankRing.vim.git
+	url = git://github.com/vim-scripts/YankRing.vim.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
-	url = http://github.com/scrooloose/syntastic.git
+	url = git://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/marvim"]
 	path = vim/bundle/marvim
-	url = http://github.com/vim-scripts/marvim.git
+	url = git://github.com/vim-scripts/marvim.git
 [submodule "vim/bundle/perl-mauke"]
 	path = vim/bundle/perl-mauke
-	url = http://github.com/vim-scripts/perl-mauke.vim.git
+	url = git://github.com/vim-scripts/perl-mauke.vim.git
 [submodule "vim/bundle/gitv"]
 	path = vim/bundle/gitv
-	url = http://github.com/gregsexton/gitv.git
+	url = git://github.com/gregsexton/gitv.git
 [submodule "vim/bundle/Vim-R-plugin"]
 	path = vim/bundle/Vim-R-plugin
-	url = http://github.com/vim-scripts/Vim-R-plugin.git
+	url = git://github.com/vim-scripts/Vim-R-plugin.git
 [submodule "vim/bundle/haskellmode-vim"]
 	path = vim/bundle/haskellmode-vim
-	url = http://github.com/lukerandall/haskellmode-vim.git
+	url = git://github.com/lukerandall/haskellmode-vim.git
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
-	url = http://github.com/majutsushi/tagbar.git
+	url = git://github.com/majutsushi/tagbar.git
 [submodule "vim/bundle/gundo.vim"]
 	path = vim/bundle/gundo.vim
-	url = http://github.com/sjl/gundo.vim.git
+	url = git://github.com/sjl/gundo.vim.git
 [submodule "vim/bundle/surround.vim"]
 	path = vim/bundle/surround.vim
-	url = http://github.com/vim-scripts/surround.vim.git
+	url = git://github.com/vim-scripts/surround.vim.git
 [submodule "vim/bundle/python-syntax-folding"]
 	path = vim/bundle/python-syntax-folding
-	url = http://github.com/vim-scripts/Python-Syntax-Folding.git
+	url = git://github.com/vim-scripts/Python-Syntax-Folding.git
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
-	url = http://github.com/godlygeek/tabular.git
+	url = git://github.com/godlygeek/tabular.git
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
@@ -66,7 +66,7 @@
 	url = git://github.com/tpope/vim-commentary.git
 [submodule "vim/bundle/vim-git"]
     path = vim/bundle/vim-git
-	url = http://github.com/tpope/vim-git.git
+	url = git://github.com/tpope/vim-git.git
 [submodule "vim/bundle/vim-clojure-static"]
 	path = vim/bundle/vim-clojure-static
 	url = git://github.com/guns/vim-clojure-static.git
