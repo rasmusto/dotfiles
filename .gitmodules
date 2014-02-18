@@ -88,3 +88,6 @@
 [submodule "vim/bundle/vim-sexp-mappings-for-regular-people"]
 	path = vim/bundle/vim-sexp-mappings-for-regular-people
 	url = git://github.com/tpope/vim-sexp-mappings-for-regular-people.git
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown
