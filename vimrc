@@ -1,3 +1,5 @@
+set clipboard=autoselect,exclude:.*
+
 " pathogen setup {{{1
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
