@@ -327,6 +327,7 @@ let g:paredit_shortmaps=1
 command! Ptoggle call PareditToggle()
 
 " airline {{{2
+set noshowmode
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts=0
 let g:airline_left_sep = ''
