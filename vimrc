@@ -96,11 +96,11 @@ if has('gui_running')
     "Fullscreen
     set go-=m go-=T go-=l go-=L go-=r go-=R go-=b go-=F go=
     set t_Co=256
-    set background=dark
+    set background=light
     colorscheme solarized
 else
     set t_Co=256
-    set background=dark
+    set background=light
     colorscheme solarized
 endif
 
@@ -328,7 +328,7 @@ command! Ptoggle call PareditToggle()
 
 " airline {{{2
 set noshowmode
-let g:airline_theme='solarized'
+let g:airline_inactive_collapse=1
 let g:airline_powerline_fonts=0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
