@@ -1,3 +1,5 @@
+set regexpengine=1
+set lazyredraw
 set clipboard=autoselect,exclude:.*
 
 " pathogen setup {{{1
@@ -39,7 +41,6 @@ nnoremap <silent> <leader>DD :exe ":profile start profile.log"<cr>:exe ":profile
 nnoremap <silent> <leader>DP :exe ":profile pause"<cr>
 nnoremap <silent> <leader>DC :exe ":profile continue"<cr>
 nnoremap <silent> <leader>DQ :exe ":profile pause"<cr>:noautocmd qall!<cr>
-" let loaded_matchparen = 1
 
 " VIM user interface {{{1
 set scrolloff=7
@@ -58,8 +59,10 @@ set hlsearch
 set incsearch
 set magic
 
-set showmatch
-set matchtime=2
+let loaded_matchparen = 1
+" set showmatch
+" let timeoutlen = 10
+" set matchtime=2
 
 " No sound on errors
 set noerrorbells
@@ -96,10 +99,12 @@ if has('gui_running')
     "Fullscreen
     set go-=m go-=T go-=l go-=L go-=r go-=R go-=b go-=F go=
     set t_Co=256
+    " set background=dark
     set background=light
     colorscheme solarized
 else
     set t_Co=256
+    " set background=dark
     set background=light
     colorscheme solarized
 endif
@@ -246,6 +251,7 @@ au FileType clojure silent! call TurnOnClojureFolding()
 
 let g:clojure_maxlines = 50
 let g:clojure_align_multiline_strings = 1
+let g:clojure_align_subforms = 1
 
 " whitespace {{{2
 func! DeleteTrailingWS()
@@ -258,6 +264,7 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.r :call DeleteTrailingWS()
 autocmd BufWrite *.clj :call DeleteTrailingWS()
 
+" highlight ExtraWhitespace ctermbg=0 guibg=#073642
 highlight ExtraWhitespace ctermbg=7 guibg=#eee8d5
 match ExtraWhitespace /\s\+$/
 
