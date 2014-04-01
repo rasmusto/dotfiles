@@ -1,2 +1,5 @@
 .netrwhist
 undodir
+emacs.d/eshell/
+emacs.d/history
+emacs.d/tramp

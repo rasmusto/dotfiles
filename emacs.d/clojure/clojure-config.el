@@ -1,5 +1,5 @@
 (require 'clojure-mode)
-(require 'nrepl)
+(require 'cider)
 
 ; (print
 ; "(ns user
@@ -20,19 +20,19 @@
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 (add-hook 'clojure-mode-hook          #'enable-paredit-mode)
-(add-hook 'nrepl-mode-hook            #'enable-paredit-mode)
+(add-hook 'cider-mode-hook            #'enable-paredit-mode)
+(add-hook 'cider-repl-mode-hook       #'enable-paredit-mode)
 
-(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
-
-(add-hook 'nrepl-repl-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
 (define-key evil-normal-state-map (kbd "M-.") nil)
+
 (eval-after-load 'evil-mode
-  (global-set-key (kbd "M-.") 'nrepl-jump))
+  (global-set-key (kbd "M-.") 'cider-jump))
 
 (define-key evil-insert-state-map (kbd "TAB") nil)
 (eval-after-load 'evil-mode
-  (global-set-key (kbd "TAB") 'nrepl-indent-and-complete-symbol))
+  (global-set-key (kbd "TAB") 'cider-repl-indent-and-complete-symbol))
 
 ; (setq lisp-indent-offset 1)
 
@@ -52,11 +52,11 @@
   (interactive)
   (insert "(require '[clojure.pprint :refer [pprint]])"))
 
-(defun refresh-nrepl ()
+(defun refresh-cider ()
   (interactive)
   (refresh)
   (pprint))
 
-(global-set-key (kbd "C-c c r f") 'refresh-nrepl)
+(global-set-key (kbd "C-c c r f") 'refresh-cider)
 
-(setq nrepl-pop-to-repl-buffer-on-connect nil)
+(setq cider-pop-to-repl-buffer-on-connect nil)
