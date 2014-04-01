@@ -97,3 +97,6 @@
 [submodule "vim/bundle/wombat256"]
 	path = vim/bundle/wombat256
 	url = git://github.com/vim-scripts/wombat256.vim
+[submodule "vim/bundle/timl"]
+	path = vim/bundle/timl
+	url = git://github.com/tpope/timl.git

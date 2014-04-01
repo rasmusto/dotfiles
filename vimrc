@@ -258,7 +258,7 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.r :call DeleteTrailingWS()
 autocmd BufWrite *.clj :call DeleteTrailingWS()
 
-highlight ExtraWhitespace ctermbg=0 guibg=#073642
+highlight ExtraWhitespace ctermbg=7 guibg=#eee8d5
 match ExtraWhitespace /\s\+$/
 
 " autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
