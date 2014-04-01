@@ -91,3 +91,9 @@
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = git://github.com/tpope/vim-markdown
+[submodule "vim/bundle/Wombat"]
+	path = vim/bundle/Wombat
+	url = git://github.com/vim-scripts/Wombat.git
+[submodule "vim/bundle/wombat256"]
+	path = vim/bundle/wombat256
+	url = git://github.com/vim-scripts/wombat256.vim
