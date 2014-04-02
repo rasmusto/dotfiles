@@ -100,3 +100,6 @@
 [submodule "vim/bundle/timl"]
 	path = vim/bundle/timl
 	url = git://github.com/tpope/timl.git
+[submodule "vim/bundle/vim-dispatch"]
+	path = vim/bundle/vim-dispatch
+	url = git://github.com/tpope/vim-dispatch.git
