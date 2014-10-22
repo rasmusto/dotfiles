@@ -2,6 +2,8 @@ set regexpengine=1
 set lazyredraw
 set clipboard=autoselect,exclude:.*
 
+set autochdir
+
 " pathogen setup {{{1
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -233,6 +235,12 @@ map <M-p> :cp<cr>
 
 
 " Language-specific settings {{{1
+" C {{{2
+au FileType c set tabstop=2
+" au FileType c set shiftwidth=4
+" au FileType c set noexpandtab
+au FileType c set path=.,/usr/include,/tools/dist/cadence/LDV/5.8-s005/Linux/tools.lnx86/include,,
+
 " Python {{{2
 let python_highlight_all = 1
 
@@ -311,8 +319,8 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_open_multiple_files = '1hjr'
 let g:ctrlp_max_height = 40
 let g:ctrlp_custom_ignore = {
-            \ 'dir':
-            \ '\v[\/](vnc_logs|target|.git|.hg|.svn)$',
+            \ 'dir': '\v[\/](vnc_logs|target|.git|.hg|.svn|build)$',
+            \ 'file': '\v\.(o)$',
             \ }
 let g:ctrlp_working_path_mode = 'r'
 
@@ -346,7 +354,7 @@ let g:airline_whitespace_symbol = 'W'
 
 let g:airline_detect_paste=1
 let g:airline_detect_whitespace=0 "disabled
-let g:airline_enable_tagbar=0
+let g:airline_enable_tagbar=1
 
 let g:airline#extensions#tabline#enabled = 0
 
@@ -409,3 +417,80 @@ set undolevels=1000
 set undoreload=10000
 
 nnoremap <F5> :GundoToggle<CR>
+
+" cscope {{{1
+set csprg=/usr/bin/cscope
+
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+set cscopetag
+set csto=1
+
+if filereadable("cscope.out")
+    cs add cscope.out
+endif
+
+set cscopeverbose
+
+nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" Using 'CTRL-spacebar' then a search type makes the vim window
+" split horizontally, with search result displayed in
+" the new window.
+
+nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+
+nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+
+" Hitting CTRL-space *twice* before the search type does a vertical
+" split instead of a horizontal one
+
+nmap <C-Space><C-Space>s
+            \:vert scs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space><C-Space>g
+            \:vert scs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space><C-Space>c
+            \:vert scs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space><C-Space>t
+            \:vert scs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space><C-Space>e
+            \:vert scs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-Space><C-Space>i
+            \:vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-Space><C-Space>d
+            \:vert scs find d <C-R>=expand("<cword>")<CR><CR>
+
+nmap <C-@><C-@>s
+            \:vert scs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>g
+            \:vert scs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>c
+            \:vert scs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>t
+            \:vert scs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>e
+            \:vert scs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>i
+            \:vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-@><C-@>d
+            \:vert scs find d <C-R>=expand("<cword>")<CR><CR>
