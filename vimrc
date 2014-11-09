@@ -1,12 +1,12 @@
-set regexpengine=1
+" pathogen setup {{{1
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+
+set regexpengine=0
 set lazyredraw
 set clipboard=autoselect,exclude:.*
 
 set autochdir
-
-" pathogen setup {{{1
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
 
 " General {{{1
 set history=300
@@ -101,13 +101,13 @@ if has('gui_running')
     "Fullscreen
     set go-=m go-=T go-=l go-=L go-=r go-=R go-=b go-=F go=
     set t_Co=256
-    " set background=dark
-    set background=light
+    set background=dark
+    " set background=light
     colorscheme solarized
 else
     set t_Co=256
-    " set background=dark
-    set background=light
+    set background=dark
+    " set background=light
     colorscheme solarized
 endif
 
@@ -255,11 +255,12 @@ inoremap <A-l> <C-v>u3bb<Space>
 inoremap <A-f> <C-v>u192<Space>
 
 " Clojure {{{2
-au FileType clojure silent! call TurnOnClojureFolding()
-
-let g:clojure_maxlines = 50
 let g:clojure_align_multiline_strings = 1
 let g:clojure_align_subforms = 1
+
+" Haskell {{{2
+let g:haddock_browser = "chromium"
+let g:haddock_docdir = "/usr/share/haskell/haddock"
 
 " whitespace {{{2
 func! DeleteTrailingWS()
@@ -272,8 +273,8 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.r :call DeleteTrailingWS()
 autocmd BufWrite *.clj :call DeleteTrailingWS()
 
-" highlight ExtraWhitespace ctermbg=0 guibg=#073642
-highlight ExtraWhitespace ctermbg=7 guibg=#eee8d5
+highlight ExtraWhitespace ctermbg=0 guibg=#073642
+" highlight ExtraWhitespace ctermbg=7 guibg=#eee8d5
 match ExtraWhitespace /\s\+$/
 
 " autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -343,6 +344,13 @@ command! Ptoggle call PareditToggle()
 
 " airline {{{2
 set noshowmode
+
+function! SyntaxItem()
+    return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
+
+let g:airline_section_b = '%{SyntaxItem()}'
+
 let g:airline_inactive_collapse=1
 let g:airline_powerline_fonts=0
 let g:airline_left_sep = ''
