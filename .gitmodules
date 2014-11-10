@@ -103,9 +103,6 @@
 [submodule "vim/bundle/vim-dispatch"]
 	path = vim/bundle/vim-dispatch
 	url = git://github.com/tpope/vim-dispatch.git
-[submodule "vim/bundle/systemverilog.vim"]
-	path = vim/bundle/systemverilog.vim
-	url = git://github.com/nachumk/systemverilog.vim
 [submodule "vim/bundle/vim-clojure-highlight"]
 	path = vim/bundle/vim-clojure-highlight
 	url = git://github.com/guns/vim-clojure-highlight
